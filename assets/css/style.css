@@ -637,3 +637,25 @@ p { text-wrap: pretty; }
   .comparar-moldura { grid-column: 2; grid-row: 1 / span 2; max-width: none; width: 100%; margin: 0; padding: 0; }
   .comparar { aspect-ratio: auto; height: min(78svh, 700px); }
 }
+
+/* ---------- correções do orçamento ---------- */
+.pedido textarea, .msg-previa { overflow-wrap: anywhere; word-break: break-word; }
+.campo { position: relative; }
+.conta { display: block; margin-top: 4px; text-align: right; font-size: .8125rem; font-weight: 700; color: var(--tinta-2); }
+
+/* ---------- avaliações: cartões brancos e sóbrios ---------- */
+.rola { -webkit-mask-image: none; mask-image: none; }
+.rola-item, .rola-item:nth-child(3n+2), .rola-item:nth-child(3n+3) { width: 340px; gap: 14px; padding: 22px; border-radius: 22px; background: #fff; color: var(--tinta); outline: 1px solid #e3edf5; outline-offset: -1px; align-content: start; }
+.av-topo { display: flex; align-items: center; gap: 12px; }
+.av-ini { width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; background: var(--ceu); color: var(--marinho); font-weight: 800; font-size: .9375rem; flex: none; }
+.av-nome { font-weight: 800; line-height: 1.2; }
+.av-meta { font-size: .875rem; color: var(--tinta-2); }
+.av-texto { font-family: var(--f-texto) !important; font-weight: 400 !important; font-size: 1rem !important; line-height: 1.55 !important; color: var(--tinta); display: -webkit-box; -webkit-line-clamp: 6; -webkit-box-orient: vertical; overflow: hidden; }
+.av-pe { display: flex; justify-content: space-between; align-items: center; font-size: .875rem; color: var(--tinta-2); }
+.av-estrelas { color: var(--sol); letter-spacing: 2px; font-size: 1rem; }
+/* elogios em branco também */
+.fala, .fala-2, .fala-3 { background: #fff; outline: 1px solid #e3edf5; outline-offset: -1px; border-radius: 22px; }
+.fala-2 strong, .fala-3 strong { color: var(--marinho); }
+.fala-2 span, .fala-3 span { color: var(--tinta-2); }
+.rola-item .av-nome { font-family: var(--f-texto); font-size: 1.0625rem; font-weight: 800; }
+.rola-item .av-meta { font-family: var(--f-texto); font-size: .875rem; font-weight: 400; color: var(--tinta-2); }

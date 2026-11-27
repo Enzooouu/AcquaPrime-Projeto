@@ -77,6 +77,8 @@
       const limpo = campoM2.value.replace(/[^0-9.,]/g, '').replace(/([.,].*)[.,]/g, '$1').slice(0, 6);
       if (limpo !== campoM2.value) campoM2.value = limpo;
     });
+    const obs = pedido.querySelector('[name=obs]'), conta = $('[data-conta]', pedido);
+    if (obs && conta) obs.addEventListener('input', () => { conta.textContent = `${obs.value.length}/200`; });
     pedido.addEventListener('input', atualizaPedido);
     pedido.addEventListener('change', atualizaPedido);
     pedido.addEventListener('submit', (e) => { e.preventDefault(); enviar.click(); });
