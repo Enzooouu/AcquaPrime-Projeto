@@ -511,3 +511,36 @@ p { text-wrap: pretty; }
   .orc-in { align-items: start; }
   .orc-in .cab { position: sticky; top: 120px; }
 }
+
+/* ---------- Piscinas instaladas: fotos reais (verticais) ---------- */
+.grade figure { position: relative; height: 100%; }
+.grade figcaption { position: absolute; left: 10px; bottom: 10px; padding: 6px 12px; border-radius: 999px; background: rgba(255, 255, 255, .92); color: var(--marinho); font-family: var(--f-titulo); font-weight: 600; font-size: .875rem; pointer-events: none; }
+.grade li { aspect-ratio: 4 / 5; }
+.grade .g-grande { grid-column: span 2; aspect-ratio: 1; }
+@media (min-width: 900px) {
+  .grade { grid-template-columns: repeat(4, 1fr); }
+  .grade li { height: 300px; aspect-ratio: auto; }
+  .grade .g-grande { grid-column: span 2; grid-row: span 2; height: auto; }
+  .grade .g-insta { grid-column: span 2; height: 300px; }
+}
+
+/* ---------- Antes e depois ---------- */
+.antes-depois { padding-top: var(--gap-secao); }
+.ad-par { max-width: 900px; margin: 32px auto 0; padding: 0 var(--m); display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 10px; }
+/* moldura 32 = foto 22 + 10 */
+.ad { position: relative; padding: var(--pad-card); border-radius: var(--r-card); background: var(--ceu); }
+.ad img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: var(--r-foto); cursor: zoom-in; }
+.ad figcaption { position: absolute; left: 20px; top: 20px; padding: 6px 14px; border-radius: 999px; font-family: var(--f-titulo); font-weight: 600; font-size: 1rem; }
+.ad-antes figcaption { background: #fff; color: var(--tinta-2); }
+.ad-depois { background: var(--azul-claro); }
+.ad-depois figcaption { background: var(--azul); color: #fff; }
+.ad-seta { width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; background: var(--azul); color: #fff; }
+.ad-seta svg { width: 20px; height: 20px; }
+.ad-acao { max-width: 900px; margin: 18px auto 0; padding: 0 var(--m); display: flex; justify-content: center; }
+@media (max-width: 599px) {
+  .ad-par { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .ad-seta { display: none; }
+  .ad { padding: 6px; border-radius: 22px; } /* 22 = 16 + 6 */
+  .ad img { border-radius: 16px; }
+  .ad figcaption { left: 12px; top: 12px; font-size: .875rem; padding: 4px 10px; }
+}

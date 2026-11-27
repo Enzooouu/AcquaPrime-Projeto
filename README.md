@@ -54,7 +54,9 @@ Ao trocar uma foto, salve em `.webp` com qualidade de 60 a 75 para o site contin
 
 ## Fotos provisórias (Unsplash)
 
-Todas são do [Unsplash](https://unsplash.com/license), de uso livre. **Nenhuma mostra uma piscina da Acqua Prime.**
+**Fotos reais (Instagram da Acqua Prime):** bolha-praia, praia, numai, vinil-antes, vinil-depois e og.jpg.
+
+Ainda provisórias, do [Unsplash](https://unsplash.com/license) (nenhuma é da Acqua Prime): só as dos cartões Produtos e acessórios e Pós-venda.
 
 | Arquivo | Foto |
 | --- | --- |

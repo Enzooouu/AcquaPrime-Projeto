@@ -20,8 +20,7 @@
 
   <link rel="preload" href="assets/fonts/fredoka-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/nunito-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" as="image" href="assets/img/bolha-560.webp" media="(max-width: 899px)">
-  <link rel="preload" as="image" href="assets/img/bolha-960.webp" media="(min-width: 900px)">
+  <link rel="preload" as="image" href="assets/img/bolha-praia.webp">
   <link rel="stylesheet" href="assets/css/style.css?v=3">
   <script>
     document.documentElement.classList.add('js');
@@ -117,10 +116,10 @@
         </div>
 
         <!-- A foto dentro da bolha, igual à bolha do logo.
-             TROCAR FOTO: assets/img/bolha-960.webp e bolha-560.webp (quadradas) pela melhor foto de piscina da Acqua Prime -->
+             Foto real do Instagram da Acqua Prime (piscina modelo Praia). Para trocar: assets/img/bolha-praia.webp, quadrada. -->
         <figure class="bolha-foto">
           <div class="bolha-vidro">
-            <img src="assets/img/bolha-560.webp" srcset="assets/img/bolha-560.webp 560w, assets/img/bolha-960.webp 960w" sizes="(min-width: 900px) 520px, 86vw" width="960" height="960" alt="Piscina azul em frente a uma casa" fetchpriority="high" decoding="async">
+            <img src="assets/img/bolha-praia.webp" width="724" height="724" alt="Piscina modelo Praia com tobogã e deque de madeira" fetchpriority="high" decoding="async">
             <span class="reflexo" aria-hidden="true"></span>
           </div>
           <a class="selo" href="#avaliacoes" aria-label="Nota 5,0 no Google, 50 avaliações">
@@ -142,28 +141,26 @@
       </div>
       <ul class="cards">
         <li class="card" data-reveal>
-          <!-- TROCAR FOTO -->
-          <img src="assets/img/venda-640.webp" width="640" height="466" alt="Piscina com borda infinita e deque de madeira" loading="lazy" decoding="async">
+          <img src="assets/img/praia.webp" width="724" height="904" alt="Piscina modelo Praia com tobogã" loading="lazy" decoding="async">
           <h3>Venda de piscinas</h3>
           <p>Escolha o modelo certo para o seu espaço e o seu orçamento.</p>
           <a class="link-seta" href="#orcamento" data-servico="Comprar uma piscina">Quero uma piscina</a>
         </li>
         <li class="card" data-reveal>
-          <!-- TROCAR FOTO -->
-          <img src="assets/img/instalacao-640.webp" width="640" height="466" alt="Piscina num jardim com plantas tropicais" loading="lazy" decoding="async">
+          <img src="assets/img/numai.webp" width="509" height="880" alt="Piscina modelo Numai com vidro" loading="lazy" decoding="async">
           <h3>Instalação</h3>
           <p>Acompanhamos a obra até a piscina estar cheia e pronta para o primeiro mergulho.</p>
           <a class="link-seta" href="#orcamento" data-servico="Instalação">Orçar instalação</a>
         </li>
         <li class="card" data-reveal>
-          <!-- TROCAR FOTO -->
+          <!-- TROCAR FOTO: provisória (Unsplash) -->
           <img src="assets/img/produtos-640.webp" width="640" height="466" alt="Escada de inox na borda de uma piscina" loading="lazy" decoding="async">
           <h3>Produtos e acessórios</h3>
           <p>Tratamento da água, limpeza e acessórios para manter a piscina cristalina.</p>
           <a class="link-seta" href="#orcamento" data-servico="Produtos e acessórios">Pedir produtos</a>
         </li>
         <li class="card" data-reveal>
-          <!-- TROCAR FOTO -->
+          <!-- TROCAR FOTO: provisória (Unsplash) -->
           <img src="assets/img/posvenda-640.webp" width="640" height="466" alt="Água azul e cristalina vista de dentro da piscina" loading="lazy" decoding="async">
           <h3>Pós-venda</h3>
           <p>Depois da compra, seguimos por perto para tirar dúvidas e ajudar no cuidado.</p>
@@ -181,8 +178,7 @@
     </section>
 
     <!-- ===================================================== 3. PISCINAS INSTALADAS
-         TROCAR FOTOS: as 6 fotos são provisórias (Unsplash). Troque pelas fotos do Instagram @acquaprimepp
-         (1100 × 800 e uma versão de 640 px com -640 no nome). -->
+         Fotos reais do Instagram da Acqua Prime. Para colocar mais, copie um <li> e troque a foto. -->
     <section class="piscinas" id="piscinas" aria-labelledby="piscinas-t">
       <div class="cab cab-linha" data-reveal>
         <div>
@@ -195,12 +191,9 @@
         </a>
       </div>
       <ul class="grade" data-reveal>
-        <li class="g-grande"><img src="assets/img/casa.webp" srcset="assets/img/casa-640.webp 640w, assets/img/casa.webp 1100w" sizes="(min-width: 900px) 50vw, 100vw" width="1100" height="800" loading="lazy" decoding="async" alt="Piscina azul em frente a uma casa moderna"></li>
-        <li><img src="assets/img/venda-640.webp" srcset="assets/img/venda-640.webp 640w, assets/img/venda.webp 1100w" sizes="(min-width: 900px) 25vw, 50vw" width="640" height="466" loading="lazy" decoding="async" alt="Piscina com borda infinita"></li>
-        <li><img src="assets/img/instalacao-640.webp" srcset="assets/img/instalacao-640.webp 640w, assets/img/instalacao.webp 1100w" sizes="(min-width: 900px) 25vw, 50vw" width="640" height="466" loading="lazy" decoding="async" alt="Piscina num jardim tropical"></li>
-        <li><img src="assets/img/obra-5-640.webp" srcset="assets/img/obra-5-640.webp 640w, assets/img/obra-5.webp 1100w" sizes="(min-width: 900px) 25vw, 50vw" width="640" height="466" loading="lazy" decoding="async" alt="Piscina com deque de madeira"></li>
-        <li><img src="assets/img/produtos-640.webp" srcset="assets/img/produtos-640.webp 640w, assets/img/produtos.webp 1100w" sizes="(min-width: 900px) 25vw, 50vw" width="640" height="466" loading="lazy" decoding="async" alt="Piscina com escada de inox"></li>
-        <li class="g-larga"><img src="assets/img/obra-6.webp" srcset="assets/img/obra-6-640.webp 640w, assets/img/obra-6.webp 1100w" sizes="(min-width: 900px) 50vw, 100vw" width="1100" height="800" loading="lazy" decoding="async" alt="Piscina longa entre coqueiros"></li>
+        <li class="g-grande"><figure><img src="assets/img/praia.webp" width="724" height="904" loading="lazy" decoding="async" alt="Piscina modelo Praia com tobogã e deque de madeira"><figcaption>Piscina Praia com tobogã</figcaption></figure></li>
+        <li><figure><img src="assets/img/numai.webp" width="509" height="880" loading="lazy" decoding="async" alt="Piscina modelo Numai com vidro e prainha"><figcaption>Numai + Vidro</figcaption></figure></li>
+        <li><figure><img src="assets/img/vinil-depois.webp" width="625" height="874" loading="lazy" decoding="async" alt="Piscina com vinil azul novo e borda de pedra"><figcaption>Troca de vinil</figcaption></figure></li>
         <li class="g-larga g-insta">
           <a href="https://www.instagram.com/acquaprimepp/" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-insta"/></svg>
@@ -209,6 +202,28 @@
           </a>
         </li>
       </ul>
+    </section>
+
+    <!-- ===================================================== ANTES E DEPOIS: troca de vinil (fotos reais do Instagram) -->
+    <section class="antes-depois" id="troca-de-vinil" aria-labelledby="vinil-t">
+      <div class="cab" data-reveal>
+        <h2 id="vinil-t">Antes e depois</h2>
+        <p>Troca de vinil feita pela Acqua Prime: remoção do vinil antigo, troca dos dispositivos e instalação do vinil novo.</p>
+      </div>
+      <div class="ad-par" data-reveal>
+        <figure class="ad ad-antes">
+          <img src="assets/img/vinil-antes.webp" width="625" height="874" loading="lazy" decoding="async" alt="Antes: piscina com vinil velho e água verde">
+          <figcaption>Antes</figcaption>
+        </figure>
+        <span class="ad-seta" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <figure class="ad ad-depois">
+          <img src="assets/img/vinil-depois.webp" width="625" height="874" loading="lazy" decoding="async" alt="Depois: piscina com vinil azul novo e água cristalina">
+          <figcaption>Depois</figcaption>
+        </figure>
+      </div>
+      <div class="ad-acao" data-reveal>
+        <a class="link-seta" href="#orcamento" data-servico="Instalação">Quero orçar uma troca de vinil</a>
+      </div>
     </section>
 
     <!-- ===================================================== 4. ORÇAMENTO EM CONVERSA -->
