@@ -160,7 +160,7 @@ p { text-wrap: pretty; }
 .inicio { position: relative; background: var(--ceu); overflow: hidden; padding-bottom: clamp(60px, 9vw, 120px); }
 .inicio .onda path { fill: var(--branco); }
 .inicio-in { position: relative; z-index: 2; max-width: var(--max); margin: 0 auto; padding: 22px var(--m) 0; display: grid; gap: 34px; }
-.inicio h1 { font-size: var(--t-h1); font-weight: 700; color: var(--marinho); letter-spacing: -0.035em; line-height: .92; max-width: 9ch; margin-top: 14px; }
+.inicio h1 { font-family: var(--f-texto); font-size: clamp(2.75rem, 1.5rem + 5.6vw, 5.5rem); font-weight: 800; color: var(--marinho); letter-spacing: -0.03em; line-height: 1; max-width: 10ch; margin-top: 14px; }
 .inicio-sub { margin-top: 18px; font-size: var(--t-lead); line-height: 1.4; color: var(--tinta-2); max-width: 26ch; font-weight: 600; }
 .inicio-acoes { margin-top: 26px; display: flex; flex-wrap: wrap; align-items: center; gap: 10px 22px; }
 
@@ -614,3 +614,17 @@ p { text-wrap: pretty; }
 .prod p { font-size: var(--t-small); line-height: 1.45; color: var(--tinta-2); flex: 1; }
 .prod .link-seta { font-size: .9375rem; }
 @media (min-width: 900px) { .prods { grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 44px; } .prod h3 { font-size: var(--t-h3); } .prod p { font-size: 1rem; } }
+
+/* ---------- Avaliações rolando ---------- */
+.rola { margin-top: 40px; overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
+.rola-trilho { display: flex; width: max-content; animation: rola 40s linear infinite; }
+.rola:hover .rola-trilho, .rola:active .rola-trilho { animation-play-state: paused; }
+.rola-lista { display: flex; gap: 14px; padding-right: 14px; }
+.rola-item { width: 280px; flex: none; display: grid; gap: 6px; padding: 20px 22px; border-radius: 28px; border-bottom-left-radius: 8px; background: var(--ceu); }
+.rola-item:nth-child(3n+2) { background: var(--azul-claro); color: #fff; }
+.rola-item:nth-child(3n+3) { background: var(--marinho); color: #fff; }
+.rola-estrelas { color: var(--sol); letter-spacing: 2px; }
+.rola-item p { font-family: var(--f-titulo); font-weight: 600; font-size: 1.25rem; line-height: 1.2; }
+.rola-item small { font-size: .875rem; opacity: .8; font-weight: 700; }
+@keyframes rola { to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .rola { overflow-x: auto; } .rola-lista[aria-hidden] { display: none; } }
