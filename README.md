@@ -54,7 +54,7 @@ Ao trocar uma foto, salve em `.webp` com qualidade de 60 a 75 para o site contin
 
 ## Fotos provisórias (Unsplash)
 
-**Todas as fotos agora são reais, do Instagram da Acqua Prime:** bolha-praia, praia, numai, vinil-antes, vinil-depois, hidro, reforma, reforma-obra, cloro e og.jpg. Não há mais fotos de banco de imagem.
+**Todas as fotos agora são reais, do Instagram da Acqua Prime:** bolha-praia, praia, numai, vinil-antes, vinil-depois, hidro, reforma, reforma-obra, cloro, confort, trocador, aquecedor e og.jpg. Não há mais fotos de banco de imagem.
 
 ## Informações usadas
 

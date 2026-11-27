@@ -521,7 +521,7 @@ p { text-wrap: pretty; }
   .grade { grid-template-columns: repeat(4, 1fr); }
   .grade li { height: 300px; aspect-ratio: auto; }
   .grade .g-grande { grid-column: span 2; grid-row: span 2; height: auto; }
-  .grade .g-insta { grid-column: span 2; height: 300px; }
+  .grade .g-insta { grid-column: span 1; height: 300px; }
 }
 
 /* ---------- Antes e depois ---------- */
@@ -547,7 +547,11 @@ p { text-wrap: pretty; }
 
 /* galeria com 5 obras: o Instagram ocupa a linha toda embaixo no computador */
 @media (min-width: 900px) {
-  .grade .g-insta { grid-column: 1 / -1; height: 150px; }
-  .g-insta a { grid-template-columns: auto 1fr auto; align-items: center; align-content: center; gap: 18px; }
-  .g-insta svg { margin: 0; }
+  /* 8 obras: o Instagram fecha a última linha ocupando 2 colunas */
+  .grade .g-insta { grid-column: span 1; height: 300px; }
 }
+
+/* 8 obras + Instagram: o cartão do Instagram ocupa uma célula, fechando a grade */
+.grade .g-insta.g-larga { grid-column: span 1; aspect-ratio: 4 / 5; }
+.g-insta a { padding: 16px; font-size: 1.0625rem; }
+@media (min-width: 900px) { .grade .g-insta.g-larga { aspect-ratio: auto; height: 300px; } }
