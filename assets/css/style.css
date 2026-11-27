@@ -628,3 +628,12 @@ p { text-wrap: pretty; }
 .rola-item small { font-size: .875rem; opacity: .8; font-weight: 700; }
 @keyframes rola { to { transform: translateX(-50%); } }
 @media (prefers-reduced-motion: reduce) { .rola { overflow-x: auto; } .rola-lista[aria-hidden] { display: none; } }
+
+/* ---------- Antes e depois no computador: texto de um lado, foto grande do outro ---------- */
+@media (min-width: 900px) {
+  .antes-depois { max-width: var(--max); margin: 0 auto; padding-left: var(--m); padding-right: var(--m); display: grid; grid-template-columns: 5fr 7fr; grid-template-rows: 1fr 1fr; column-gap: 56px; align-items: center; }
+  .antes-depois .cab { grid-column: 1; grid-row: 1; padding: 0; align-self: end; }
+  .antes-depois .ad-acao { grid-column: 1; grid-row: 2; margin: 20px 0 0; padding: 0; justify-content: flex-start; align-self: start; }
+  .comparar-moldura { grid-column: 2; grid-row: 1 / span 2; max-width: none; width: 100%; margin: 0; padding: 0; }
+  .comparar { aspect-ratio: auto; height: min(78svh, 700px); }
+}
