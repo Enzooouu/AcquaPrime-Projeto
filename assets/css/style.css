@@ -285,7 +285,8 @@ p { text-wrap: pretty; }
   outline: 8px solid rgba(255, 255, 255, .6);
 }
 .chat-topo { display: flex; align-items: center; gap: 12px; padding: 14px 18px; background: var(--marinho); color: #fff; }
-.chat-avatar { width: 44px; height: 44px; border-radius: 50%; overflow: hidden; background: #fff; flex: none; }
+.chat-avatar { width: 48px; height: 48px; border-radius: 50%; background: #fff; flex: none; display: grid; place-items: center; padding: 6px; }
+.chat-avatar img { width: 100%; height: auto; }
 .chat-topo strong { display: block; font-family: var(--f-titulo); font-weight: 600; font-size: 1.125rem; line-height: 1.1; }
 .chat-topo small { font-size: .875rem; color: #b9dcff; }
 .chat-log { display: flex; flex-direction: column; gap: 8px; padding: 18px 14px; min-height: 260px; max-height: 440px; overflow-y: auto; background: #eef6fb; scroll-behavior: smooth; }
