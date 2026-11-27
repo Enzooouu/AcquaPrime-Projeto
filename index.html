@@ -213,16 +213,18 @@
         <h2 id="vinil-t">Antes e depois</h2>
         <p>Troca de vinil feita pela Acqua Prime: remoção do vinil antigo, troca dos dispositivos e instalação do vinil novo.</p>
       </div>
-      <div class="ad-par" data-reveal>
-        <figure class="ad ad-antes">
-          <img src="assets/img/vinil-antes.webp" width="625" height="874" loading="lazy" decoding="async" alt="Antes: piscina com vinil velho e água verde">
-          <figcaption>Antes</figcaption>
-        </figure>
-        <span class="ad-seta" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-        <figure class="ad ad-depois">
-          <img src="assets/img/vinil-depois.webp" width="625" height="874" loading="lazy" decoding="async" alt="Depois: piscina com vinil azul novo e água cristalina">
-          <figcaption>Depois</figcaption>
-        </figure>
+      <div class="comparar-moldura" data-reveal>
+        <div class="comparar" data-comparar style="--pos: 50%">
+          <img class="comparar-depois" src="assets/img/vinil-depois.webp" width="625" height="874" loading="lazy" decoding="async" alt="Depois: piscina com vinil azul novo e água cristalina">
+          <div class="comparar-antes">
+            <img src="assets/img/vinil-antes.webp" width="625" height="874" loading="lazy" decoding="async" alt="Antes: piscina com vinil velho e água verde">
+          </div>
+          <span class="comparar-tag tag-antes" aria-hidden="true">Antes</span>
+          <span class="comparar-tag tag-depois" aria-hidden="true">Depois</span>
+          <div class="comparar-linha" aria-hidden="true"><span class="comparar-bola"><svg viewBox="0 0 24 24"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+          <input class="comparar-range" type="range" min="0" max="100" value="50" aria-label="Arraste para comparar antes e depois" data-comparar-range>
+        </div>
+        <p class="comparar-dica">Arraste para comparar</p>
       </div>
       <div class="ad-acao" data-reveal>
         <a class="link-seta" href="#orcamento" data-servico="Instalação">Quero orçar uma troca de vinil</a>
@@ -288,14 +290,16 @@
               <input type="hidden" name="text" value="Olá, Acqua Prime! Vim pelo site e gostaria de um orçamento." data-texto>
             </form>
 
+          </div>
+          <div class="chat-lado">
             <p class="msg-rotulo">Sua mensagem</p>
             <p class="msg msg-cliente msg-previa" data-previa aria-live="polite">Olá, Acqua Prime! Vim pelo site e gostaria de um orçamento.</p>
-          </div>
           <div class="chat-resp" data-contato>
             <a class="pill pill-azul" href="https://wa.me/5567991661449" target="_blank" rel="noopener" data-enviar>
               <span class="pill-chip" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#i-wa"/></svg></span>
               Enviar tudo no WhatsApp
             </a>
+          </div>
           </div>
         </div>
       </div>

@@ -104,12 +104,20 @@
     }
   }
 
+  /* ---------- Antes e depois: arrastar ---------- */
+  $$('[data-comparar]').forEach(box => {
+    const r = $('[data-comparar-range]', box);
+    const set = (v) => { box.style.setProperty('--pos', v + '%'); box.style.setProperty('--p', v / 100); };
+    r.addEventListener('input', () => set(r.value));
+    set(r.value);
+  });
+
   /* ---------- Fotos: tocar para ampliar ---------- */
   const caixa = $('[data-lightbox]');
   if (caixa && typeof caixa.showModal === 'function') {
     const img = $('[data-lb-img]', caixa);
     let origem = null;
-    $$('.grade img, .ad img').forEach(f => {
+    $$('.grade img').forEach(f => {
       f.tabIndex = 0; f.setAttribute('role', 'button');
       f.setAttribute('aria-label', `Ampliar foto: ${f.alt}`);
       const abre = () => { origem = f; img.src = f.currentSrc || f.src; img.alt = f.alt; caixa.showModal(); };
