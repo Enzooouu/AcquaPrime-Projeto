@@ -544,3 +544,10 @@ p { text-wrap: pretty; }
   .ad img { border-radius: 16px; }
   .ad figcaption { left: 12px; top: 12px; font-size: .875rem; padding: 4px 10px; }
 }
+
+/* galeria com 5 obras: o Instagram ocupa a linha toda embaixo no computador */
+@media (min-width: 900px) {
+  .grade .g-insta { grid-column: 1 / -1; height: 150px; }
+  .g-insta a { grid-template-columns: auto 1fr auto; align-items: center; align-content: center; gap: 18px; }
+  .g-insta svg { margin: 0; }
+}

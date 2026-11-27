@@ -71,6 +71,12 @@
     // tocar de novo numa opção marcada desmarca
     pedido.addEventListener('pointerdown', (e) => { const l = e.target.closest('label'); const i = l && l.querySelector('input[type=radio]'); if (i) i.dataset.era = String(i.checked); });
     pedido.addEventListener('click', (e) => { const i = e.target; if (i.matches && i.matches('input[type=radio]') && i.dataset.era === 'true') { i.checked = false; i.dataset.era = 'false'; atualizaPedido(); } });
+    // tamanho: só números (aceita vírgula ou ponto)
+    const campoM2 = pedido.querySelector('[name=m2]');
+    campoM2.addEventListener('input', () => {
+      const limpo = campoM2.value.replace(/[^0-9.,]/g, '').replace(/([.,].*)[.,]/g, '$1').slice(0, 6);
+      if (limpo !== campoM2.value) campoM2.value = limpo;
+    });
     pedido.addEventListener('input', atualizaPedido);
     pedido.addEventListener('change', atualizaPedido);
     pedido.addEventListener('submit', (e) => { e.preventDefault(); enviar.click(); });

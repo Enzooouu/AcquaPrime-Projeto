@@ -54,19 +54,7 @@ Ao trocar uma foto, salve em `.webp` com qualidade de 60 a 75 para o site contin
 
 ## Fotos provisórias (Unsplash)
 
-**Fotos reais (Instagram da Acqua Prime):** bolha-praia, praia, numai, vinil-antes, vinil-depois e og.jpg.
-
-Ainda provisórias, do [Unsplash](https://unsplash.com/license) (nenhuma é da Acqua Prime): só as dos cartões Produtos e acessórios e Pós-venda.
-
-| Arquivo | Foto |
-| --- | --- |
-| bolha / casa / og | https://images.unsplash.com/photo-1613490493576-7fde63acd811 |
-| venda | https://images.unsplash.com/photo-1575429198097-0414ec08e8cd |
-| instalacao | https://images.unsplash.com/photo-1582610116397-edb318620f90 |
-| produtos | https://images.unsplash.com/photo-1572331165267-854da2b10ccc |
-| posvenda | https://images.unsplash.com/photo-1530053969600-caed2596d242 |
-| obra-5 | https://images.unsplash.com/photo-1584132967334-10e028bd69f7 |
-| obra-6 | https://images.unsplash.com/photo-1596178065887-1198b6148b2b |
+**Todas as fotos agora são reais, do Instagram da Acqua Prime:** bolha-praia, praia, numai, vinil-antes, vinil-depois, hidro, reforma, reforma-obra, cloro e og.jpg. Não há mais fotos de banco de imagem.
 
 ## Informações usadas
 
