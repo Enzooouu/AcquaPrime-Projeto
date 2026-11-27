@@ -555,3 +555,5 @@ p { text-wrap: pretty; }
 .grade .g-insta.g-larga { grid-column: span 1; aspect-ratio: 4 / 5; }
 .g-insta a { padding: 16px; font-size: 1.0625rem; }
 @media (min-width: 900px) { .grade .g-insta.g-larga { aspect-ratio: auto; height: 300px; } }
+@media (min-width: 900px) { .grade .g-grande { aspect-ratio: auto; height: auto; } }
+@media (min-width: 900px) { .grade .g-grande { position: relative; } .grade .g-grande figure { position: absolute; inset: 0; } }
