@@ -217,7 +217,7 @@
       <div class="orc-in">
         <div class="cab" data-reveal>
           <h2 id="orcamento-t">Monte seu orçamento</h2>
-          <p>Responda umas perguntas rápidas. A mensagem chega pronta no WhatsApp da loja e você revisa antes de mandar.</p>
+          <p>Preencha o que souber. Tudo vai numa mensagem só para o WhatsApp da loja, e você revisa antes de mandar.</p>
         </div>
 
         <div class="chat" data-reveal>
@@ -225,13 +225,59 @@
             <span class="chat-avatar"><img src="assets/img/apple-touch-icon.png" width="180" height="180" alt=""></span>
             <span><strong>Acqua Prime</strong><small>(67) 99166-1449</small></span>
           </div>
-          <div class="chat-log" data-chat-log aria-live="polite">
-            <noscript>
-              <p class="msg msg-loja">Oi! Chame a gente no WhatsApp para pedir seu orçamento.</p>
-            </noscript>
+          <div class="chat-log">
+            <p class="msg msg-loja">Oi! Que bom ter você aqui. Preencha o que souber e mande tudo numa mensagem só.</p>
+
+            <form class="pedido" data-pedido action="https://wa.me/5567991661449" method="get" target="_blank">
+              <fieldset class="campo-grupo">
+                <legend>O que você procura?</legend>
+                <div class="chips">
+                  <label class="chip"><input type="radio" name="servico" value="Comprar uma piscina"><span>Comprar uma piscina</span></label>
+                  <label class="chip"><input type="radio" name="servico" value="Instalação"><span>Instalação</span></label>
+                  <label class="chip"><input type="radio" name="servico" value="Produtos e acessórios"><span>Produtos e acessórios</span></label>
+                  <label class="chip"><input type="radio" name="servico" value="Pós-venda"><span>Pós-venda</span></label>
+                  <label class="chip"><input type="radio" name="servico" value="Ainda não sei"><span>Ainda não sei</span></label>
+                </div>
+              </fieldset>
+
+              <fieldset class="campo-grupo">
+                <legend>Tamanho da piscina</legend>
+                <div class="m2">
+                  <label class="campo-m2"><span class="sr-only">Tamanho em metros quadrados</span><input type="text" name="m2" inputmode="decimal" autocomplete="off" placeholder="Ex.: 24"><b aria-hidden="true">m²</b></label>
+                  <label class="chip"><input type="checkbox" name="m2nao" value="1"><span>Não sei</span></label>
+                </div>
+              </fieldset>
+
+              <!-- Opções de ladrilho para a pessoa indicar a preferência. CONFIRMAR COM O DONO quais a loja trabalha. -->
+              <fieldset class="campo-grupo">
+                <legend>Ladrilho que você gosta</legend>
+                <div class="ladrilhos">
+                  <label class="ladrilho"><input type="radio" name="ladrilho" value="Azul clássico"><span><i class="lad lad-azul"></i>Azul clássico</span></label>
+                  <label class="ladrilho"><input type="radio" name="ladrilho" value="Azul-claro"><span><i class="lad lad-claro"></i>Azul-claro</span></label>
+                  <label class="ladrilho"><input type="radio" name="ladrilho" value="Verde-água"><span><i class="lad lad-verde"></i>Verde-água</span></label>
+                  <label class="ladrilho"><input type="radio" name="ladrilho" value="Mosaico"><span><i class="lad lad-mosaico"></i>Mosaico</span></label>
+                  <label class="ladrilho"><input type="radio" name="ladrilho" value="Branco"><span><i class="lad lad-branco"></i>Branco</span></label>
+                  <label class="ladrilho"><input type="radio" name="ladrilho" value="Quero ver as opções na loja"><span><i class="lad lad-duvida">?</i>Ver na loja</span></label>
+                </div>
+              </fieldset>
+
+              <div class="duplo">
+                <label class="campo"><span>Nome</span><input type="text" name="nome" autocomplete="given-name" maxlength="40" placeholder="Seu nome"></label>
+                <label class="campo"><span>Bairro</span><input type="text" name="bairro" maxlength="40" placeholder="Ex.: Centro"></label>
+              </div>
+              <label class="campo"><span>Informações a mais</span><textarea name="obs" rows="3" maxlength="400" placeholder="Ex.: quero aquecimento, prefiro visita no sábado…"></textarea></label>
+
+              <input type="hidden" name="text" value="Olá, Acqua Prime! Vim pelo site e gostaria de um orçamento." data-texto>
+            </form>
+
+            <p class="msg-rotulo">Sua mensagem</p>
+            <p class="msg msg-cliente msg-previa" data-previa aria-live="polite">Olá, Acqua Prime! Vim pelo site e gostaria de um orçamento.</p>
           </div>
-          <div class="chat-resp" data-chat-resp data-contato>
-            <noscript><a class="pill pill-azul" href="https://wa.me/5567991661449">Abrir o WhatsApp</a></noscript>
+          <div class="chat-resp" data-contato>
+            <a class="pill pill-azul" href="https://wa.me/5567991661449" target="_blank" rel="noopener" data-enviar>
+              <span class="pill-chip" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#i-wa"/></svg></span>
+              Enviar tudo no WhatsApp
+            </a>
           </div>
         </div>
       </div>

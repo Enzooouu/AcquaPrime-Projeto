@@ -32,7 +32,7 @@ bolhas subindo e ondas de água entre as seções. Títulos em Fredoka e textos 
 2. **Tudo para a sua piscina:** venda, instalação, produtos e acessórios, pós-venda. Cada botão já começa a conversa de orçamento com a opção escolhida.
 - **Faixa do slogan:** "Sua piscina com o nosso melhor!" num fundo azul com ondas.
 3. **Piscinas instaladas:** grade de fotos que abrem grandes ao tocar, com o Instagram no fim.
-4. **Monte seu orçamento:** uma conversa no estilo WhatsApp. A loja pergunta o que a pessoa procura, o tamanho, o nome e se quer contar mais alguma coisa; no fim aparece a mensagem pronta e o botão "Enviar no WhatsApp" para o (67) 99166-1449.
+4. **Monte seu orçamento:** um quadro em estilo conversa onde a pessoa preenche tudo de uma vez: o que procura, tamanho em m² (ou "Não sei"), ladrilho que gosta (azul clássico, azul-claro, verde-água, mosaico, branco ou ver na loja), nome, bairro e informações a mais. A prévia da mensagem monta ao vivo e o botão "Enviar tudo no WhatsApp" manda numa mensagem só para o (67) 99166-1449. As opções de ladrilho são exemplos: confirme com o dono quais a loja trabalha.
 5. **Nota 5,0 no Google:** 50 avaliações e os três pontos que os clientes elogiam, em balões de fala.
 6. **Onde estamos:** endereço, horário com o dia de hoje marcado, WhatsApp, Como chegar e mapa.
 - **Rodapé:** logo, slogan, contatos e horário.

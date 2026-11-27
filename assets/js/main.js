@@ -39,133 +39,47 @@
     document.addEventListener('click', (e) => { if (!topo.contains(e.target)) setMenu(false); });
   }
 
-  /* ---------- Orçamento em forma de conversa ---------- */
-  const log = $('[data-chat-log]');
-  const resp = $('[data-chat-resp]');
-  const respostas = {};
-  let etapa = 0, rodando = false, sessao = 0, comecou = false;
-
-  const ETAPAS = [
-    { chave: 'servico', pergunta: 'Oi! Que bom ter você aqui. O que você procura?', opcoes: ['Comprar uma piscina', 'Instalação', 'Produtos e acessórios', 'Pós-venda', 'Ainda não sei'] },
-    { chave: 'tamanho', pergunta: 'Legal! E qual o tamanho aproximado da piscina?', opcoes: ['Pequena', 'Média', 'Grande', 'Não sei'], pular: (r) => r.servico === 'Produtos e acessórios' || r.servico === 'Pós-venda' },
-    { chave: 'nome', pergunta: 'Como você se chama?', campo: 'Seu nome', opcional: true },
-    { chave: 'obs', pergunta: 'Quer contar mais alguma coisa? Pode ser o bairro, uma dúvida ou o que precisa.', campo: 'Escreva aqui', opcional: true },
-  ];
-
-  const mensagem = () => {
-    const linhas = ['Olá, Acqua Prime! Vim pelo site e gostaria de um orçamento.'];
-    const d = [];
-    if (respostas.servico) d.push(`*Procuro:* ${respostas.servico}`);
-    if (respostas.tamanho) d.push(`*Tamanho da piscina:* ${respostas.tamanho}`);
-    if (respostas.nome) d.push(`*Nome:* ${respostas.nome}`);
-    if (d.length) linhas.push('', ...d);
-    if (respostas.obs) linhas.push('', respostas.obs);
-    return linhas.join('\n');
-  };
+  /* ---------- Orçamento: tudo numa mensagem só ---------- */
+  const pedido = $('[data-pedido]');
+  const previa = $('[data-previa]');
+  const enviar = $('[data-enviar]');
   const esc = (s) => s.replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-
-  const rola = () => { if (log) log.scrollTop = log.scrollHeight; };
-  const fala = (texto, quem, html) => {
-    const p = document.createElement('p');
-    p.className = `msg msg-${quem}`;
-    if (html) p.innerHTML = html; else p.textContent = texto;
-    log.appendChild(p); rola();
-    return p;
+  const monta = () => {
+    const f = new FormData(pedido);
+    const v = (k) => (f.get(k) || '').toString().trim();
+    const l = ['Olá, Acqua Prime! Vim pelo site e gostaria de um orçamento.'];
+    const d = [];
+    if (v('servico')) d.push(`*Procuro:* ${v('servico')}`);
+    if (v('m2nao')) d.push('*Tamanho:* ainda não sei');
+    else if (v('m2')) d.push(`*Tamanho:* ${v('m2').replace(/\s*m²?\s*$/i, '')} m²`);
+    if (v('ladrilho')) d.push(`*Ladrilho:* ${v('ladrilho')}`);
+    if (v('nome')) d.push(`*Nome:* ${v('nome')}`);
+    if (v('bairro')) d.push(`*Bairro:* ${v('bairro')}`);
+    if (d.length) l.push('', ...d);
+    if (v('obs')) l.push('', `*Mais informações:* ${v('obs')}`);
+    return l.join('\n');
   };
-  // a loja "digita" um instante antes de responder
-  const lojaFala = (texto, html) => new Promise(ok => {
-    if (reduz) { fala(texto, 'loja', html); return ok(); }
-    const d = document.createElement('div');
-    d.className = 'digitando'; d.innerHTML = '<i></i><i></i><i></i>';
-    d.setAttribute('aria-hidden', 'true');
-    log.appendChild(d); rola();
-    setTimeout(() => { d.remove(); fala(texto, 'loja', html); ok(); }, 650);
-  });
-
-  const limpa = () => { resp.innerHTML = ''; };
-  const botao = (texto, cls, acao) => {
-    const b = document.createElement('button');
-    b.type = 'button'; b.className = cls; b.textContent = texto;
-    b.addEventListener('click', acao);
-    resp.appendChild(b);
-    return b;
+  const atualizaPedido = () => {
+    const m2 = pedido.querySelector('[name=m2]');
+    m2.disabled = pedido.querySelector('[name=m2nao]').checked;
+    const txt = monta();
+    previa.innerHTML = esc(txt).replace(/\*(.+?)\*/g, '<b>$1</b>');
+    enviar.href = `${WA}?text=${encodeURIComponent(txt)}`;
+    $('[data-texto]', pedido).value = txt;
   };
-
-  const responde = (valor, mostra) => {
-    const e = ETAPAS[etapa];
-    if (valor) respostas[e.chave] = valor; else delete respostas[e.chave];
-    fala(mostra || valor, 'cliente');
-    etapa++;
-    proxima();
-  };
-
-  const proxima = async () => {
-    comecou = true;
-    const s = sessao;
-    limpa();
-    while (etapa < ETAPAS.length && ETAPAS[etapa].pular && ETAPAS[etapa].pular(respostas)) { delete respostas[ETAPAS[etapa].chave]; etapa++; }
-    if (etapa >= ETAPAS.length) return final();
-    const e = ETAPAS[etapa];
-    await lojaFala(e.pergunta);
-    if (s !== sessao) return;
-    if (e.opcoes) {
-      e.opcoes.forEach(o => botao(o, 'opcao', () => responde(o)));
-    } else {
-      const f = document.createElement('form');
-      f.className = 'campo-chat';
-      f.innerHTML = `<label class="sr-only" for="chat-${e.chave}">${esc(e.pergunta)}</label><input id="chat-${e.chave}" type="text" maxlength="${e.chave === 'obs' ? 300 : 40}" autocomplete="${e.chave === 'nome' ? 'given-name' : 'off'}" placeholder="${esc(e.campo)}"><button type="submit" aria-label="Enviar resposta"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12l15-7-5 15-3-6z" fill="currentColor"/></svg></button>`;
-      f.addEventListener('submit', (ev) => { ev.preventDefault(); const v = f.querySelector('input').value.trim(); if (v) responde(v); });
-      resp.appendChild(f);
-      if (e.opcional) botao('Pular', 'opcao opcao-fraca', () => responde('', 'Pular'));
-      // no celular, só foca se a pessoa já está mexendo na conversa (não abre o teclado sozinho)
-      if (rodando) f.querySelector('input').focus({ preventScroll: true });
-    }
-  };
-
-  const final = async () => {
-    const txt = mensagem();
-    await lojaFala('Pronto! Sua mensagem ficou assim:');
-    fala('', 'loja msg-final', esc(txt).replace(/\*(.+?)\*/g, '<b>$1</b>'));
-    const a = document.createElement('a');
-    a.className = 'pill pill-azul';
-    a.href = `${WA}?text=${encodeURIComponent(txt)}`;
-    a.target = '_blank'; a.rel = 'noopener';
-    a.setAttribute('data-contato', '');
-    a.innerHTML = '<span class="pill-chip" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#i-wa"/></svg></span>Enviar no WhatsApp';
-    resp.appendChild(a);
-    botao('Começar de novo', 'opcao opcao-fraca', recomeca);
-    observaContato(a);
-  };
-
-  const recomeca = () => {
-    sessao++;
-    Object.keys(respostas).forEach(k => delete respostas[k]);
-    etapa = 0; log.innerHTML = ''; proxima();
-  };
-
-  if (log && resp) {
-    resp.addEventListener('pointerdown', () => { rodando = true; });
-    resp.addEventListener('keydown', () => { rodando = true; });
-    // a conversa começa quando a seção aparece na tela
-    if ('IntersectionObserver' in window) {
-      const io = new IntersectionObserver(([e]) => { if (e.isIntersecting) { io.disconnect(); if (!comecou) proxima(); } }, { threshold: .25 });
-      io.observe(log);
-    } else proxima();
+  if (pedido && previa && enviar) {
+    // tocar de novo numa opção marcada desmarca
+    pedido.addEventListener('pointerdown', (e) => { const l = e.target.closest('label'); const i = l && l.querySelector('input[type=radio]'); if (i) i.dataset.era = String(i.checked); });
+    pedido.addEventListener('click', (e) => { const i = e.target; if (i.matches && i.matches('input[type=radio]') && i.dataset.era === 'true') { i.checked = false; i.dataset.era = 'false'; atualizaPedido(); } });
+    pedido.addEventListener('input', atualizaPedido);
+    pedido.addEventListener('change', atualizaPedido);
+    pedido.addEventListener('submit', (e) => { e.preventDefault(); enviar.click(); });
+    atualizaPedido();
   }
-
-  // atalhos dos cartões de serviço: já respondem a primeira pergunta
+  // atalhos dos cartões de serviço: já marcam a opção
   $$('[data-servico]').forEach(a => a.addEventListener('click', () => {
-    if (!log) return;
-    rodando = true; comecou = true;
-    const s = ++sessao;
-    Object.keys(respostas).forEach(k => delete respostas[k]);
-    log.innerHTML = '';
-    etapa = 0;
-    (async () => {
-      limpa();
-      await lojaFala(ETAPAS[0].pergunta);
-      if (s === sessao) responde(a.dataset.servico);
-    })();
+    const i = pedido && $$('input[name=servico]', pedido).find(x => x.value === a.dataset.servico);
+    if (i) { i.checked = true; atualizaPedido(); }
   }));
 
   /* ---------- WhatsApp flutuante: some quando outro botão de contato está na tela ---------- */
@@ -178,9 +92,9 @@
     const io = new IntersectionObserver((es) => { es.forEach(e => e.isIntersecting ? visiveis.add(e.target) : visiveis.delete(e.target)); atualiza(); }, { threshold: .1 });
     $$('[data-contato]').forEach(el => io.observe(el));
     observaContato = (el) => io.observe(el);
-    if (resp) {
-      resp.addEventListener('focusin', (e) => { if (e.target.matches('input')) { digitando = true; atualiza(); } });
-      resp.addEventListener('focusout', () => { digitando = false; atualiza(); });
+    if (pedido) {
+      pedido.addEventListener('focusin', (e) => { if (e.target.matches('input[type=text], textarea')) { digitando = true; atualiza(); } });
+      pedido.addEventListener('focusout', () => { digitando = false; atualiza(); });
     }
   }
 
