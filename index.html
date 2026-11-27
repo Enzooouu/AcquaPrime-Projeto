@@ -4,33 +4,27 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Acqua Prime Piscinas | Piscinas em Ponta Porã - MS</title>
-  <meta name="description" content="Venda de piscinas, instalação, produtos, acessórios e pós-venda em Ponta Porã - MS. Nota 5,0 no Google com 50 avaliações. Monte seu orçamento e envie pelo WhatsApp.">
+  <meta name="description" content="Venda de piscinas, instalação, produtos, acessórios e pós-venda em Ponta Porã - MS. Nota 5,0 no Google com 50 avaliações. Peça seu orçamento pelo WhatsApp.">
   <meta name="robots" content="index, follow, max-image-preview:large">
-  <meta name="geo.region" content="BR-MS">
-  <meta name="geo.placename" content="Ponta Porã">
-  <meta name="theme-color" content="#072a5e">
+  <meta name="theme-color" content="#0a63d1">
   <link rel="icon" href="assets/img/favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 
-  <!-- Compartilhamento (WhatsApp, Facebook). TROCAR og.jpg por uma foto real da Acqua Prime (1200 × 630). -->
+  <!-- Compartilhamento. TROCAR og.jpg por uma foto real da Acqua Prime (1200 × 630). -->
   <meta property="og:type" content="website">
   <meta property="og:locale" content="pt_BR">
-  <meta property="og:title" content="Acqua Prime Piscinas | Sua piscina dos sonhos">
+  <meta property="og:title" content="Acqua Prime Piscinas | Sua piscina com o nosso melhor!">
   <meta property="og:description" content="Venda de piscinas, instalação, produtos e pós-venda em Ponta Porã - MS.">
-  <meta property="og:site_name" content="Acqua Prime Piscinas">
   <meta property="og:image" content="assets/img/og.jpg">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
 
-  <link rel="preload" href="assets/fonts/hanken-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" as="image" href="assets/img/hero-828.webp" media="(max-width: 767px)" fetchpriority="high">
-  <link rel="preload" as="image" href="assets/img/hero-1920.webp" media="(min-width: 768px)" fetchpriority="high">
-
-  <link rel="stylesheet" href="assets/css/style.css?v=1">
+  <link rel="preload" href="assets/fonts/fredoka-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/nunito-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" as="image" href="assets/img/bolha-560.webp" media="(max-width: 899px)">
+  <link rel="preload" as="image" href="assets/img/bolha-960.webp" media="(min-width: 900px)">
+  <link rel="stylesheet" href="assets/css/style.css?v=3">
   <script>
     document.documentElement.classList.add('js');
-    // Tela de abertura: só na primeira visita da sessão e nunca para quem pediu menos animação
     try {
       if (!sessionStorage.getItem('acqua-abertura') && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
         document.documentElement.classList.add('splash-on');
@@ -43,18 +37,11 @@
     "@context": "https://schema.org",
     "@type": "Store",
     "name": "Acqua Prime Piscinas",
-    "description": "Venda de piscinas, instalação, produtos e acessórios e pós-venda em Ponta Porã - MS.",
-    "image": "assets/img/og.jpg",
-    "logo": "logo/acqua-prime-logo.png",
     "slogan": "Sua piscina com o nosso melhor!",
+    "logo": "logo/acqua-prime-logo.png",
+    "image": "assets/img/og.jpg",
     "telephone": "+55-67-99166-1449",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Rua Maracaju, 431 - Centro",
-      "addressLocality": "Ponta Porã",
-      "addressRegion": "MS",
-      "addressCountry": "BR"
-    },
+    "address": { "@type": "PostalAddress", "streetAddress": "Rua Maracaju, 431 - Centro", "addressLocality": "Ponta Porã", "addressRegion": "MS", "addressCountry": "BR" },
     "openingHoursSpecification": [
       { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "08:00", "closes": "17:30" },
       { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "08:00", "closes": "13:00" }
@@ -67,8 +54,7 @@
 <body>
   <a class="skip" href="#conteudo">Pular para o conteúdo</a>
 
-  <!-- ===================================================== TELA DE ABERTURA
-       Só na primeira visita da sessão. O logo entra como uma bolha, o slogan aparece e a tela sobe (1,3 a 1,6 s). Tocar pula. -->
+  <!-- TELA DE ABERTURA: só na primeira visita da sessão. O logo entra como uma bolha. Tocar pula. -->
   <div class="splash" data-splash aria-hidden="true">
     <div class="splash-inner">
       <img class="splash-logo" src="assets/img/logo-520.webp" width="520" height="280" alt="" decoding="async">
@@ -80,394 +66,277 @@
       var root = document.documentElement, el = document.querySelector('[data-splash]');
       if (!el || !root.classList.contains('splash-on')) return;
       try { sessionStorage.setItem('acqua-abertura', '1'); } catch (e) {}
-      var start = Date.now(), MIN = 1300, MAX = 1600, done = false, loaded = false;
+      var start = Date.now(), done = false, loaded = false;
       function out() {
         if (done) return; done = true;
-        el.classList.add('is-out');
-        root.classList.remove('splash-on');
-        window.__acquaSplash = 'out';
-        document.dispatchEvent(new Event('acqua:splash-out'));
+        el.classList.add('is-out'); root.classList.remove('splash-on');
         setTimeout(function () { el.remove(); }, 800);
       }
-      function check() { var t = Date.now() - start; if ((loaded && t >= MIN) || t >= MAX) out(); }
+      function check() { if ((loaded && Date.now() - start >= 1300) || Date.now() - start >= 1600) out(); }
       window.addEventListener('load', function () { loaded = true; check(); });
-      setTimeout(check, MIN); setTimeout(out, MAX);
+      setTimeout(check, 1300); setTimeout(out, 1600);
       el.addEventListener('click', out);
     })();
   </script>
 
-  <!-- Efeito de água nas letras do título -->
-  <svg class="defs" width="0" height="0" aria-hidden="true" focusable="false">
-    <defs>
-      <filter id="ripple" x="-5%" y="-20%" width="110%" height="140%">
-        <feTurbulence type="fractalNoise" baseFrequency="0.006 0.08" numOctaves="1" seed="7" result="n">
-          <animate attributeName="baseFrequency" dur="10s" values="0.006 0.08;0.009 0.11;0.006 0.08" repeatCount="indefinite"/>
-        </feTurbulence>
-        <feDisplacementMap in="SourceGraphic" in2="n" scale="6" xChannelSelector="R" yChannelSelector="G"/>
-      </filter>
-    </defs>
-  </svg>
-
-  <!-- ===================================================== CABEÇALHO FIXO -->
-  <header class="site-header" data-header>
-    <nav class="nav" aria-label="Principal">
-      <a class="wordmark" href="#topo"><img src="assets/img/logo.webp" srcset="assets/img/logo.webp 240w, assets/img/logo-520.webp 520w" sizes="120px" width="240" height="129" alt="Acqua Prime Piscinas, início" decoding="async"></a>
-      <ul class="nav-links" id="menu" data-menu>
-        <li><a href="#servicos">Serviços</a></li>
-        <li><a href="#obras">Piscinas instaladas</a></li>
-        <li><a href="#avaliacoes">Avaliações</a></li>
-        <li><a href="#contato">Onde estamos</a></li>
-      </ul>
-      <a class="btn btn-light btn-sm nav-cta" href="#orcamento">Orçamento</a>
+  <!-- ===================================================== CABEÇALHO -->
+  <header class="topo" data-header>
+    <div class="topo-in">
+      <a class="logo" href="#inicio"><img src="assets/img/logo.webp" srcset="assets/img/logo.webp 240w, assets/img/logo-520.webp 520w" sizes="120px" width="240" height="129" alt="Acqua Prime Piscinas, início" decoding="async"></a>
+      <nav class="menu" id="menu" aria-label="Principal" data-menu>
+        <a href="#servicos">Serviços</a>
+        <a href="#piscinas">Piscinas</a>
+        <a href="#orcamento">Orçamento</a>
+        <a href="#avaliacoes">Avaliações</a>
+        <a href="#onde">Onde estamos</a>
+      </nav>
+      <a class="pill pill-azul topo-cta" href="#orcamento">Orçamento</a>
       <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu" data-menu-btn>
-        <span class="menu-icon" aria-hidden="true"><span></span><span></span></span>
+        <span class="menu-ico" aria-hidden="true"><i></i><i></i><i></i></span>
         <span class="sr-only">Abrir menu</span>
       </button>
-    </nav>
+    </div>
   </header>
 
-  <!-- ===================================================== 1. TOPO -->
-  <section class="hero chapter" id="topo" aria-labelledby="hero-titulo">
-    <!-- TROCAR FOTO: assets/img/hero-1920.webp (computador, 1920 × 1280) e hero-828.webp (celular, 828 × 1242, vertical; deixe a água no meio da foto) pela melhor foto de piscina da Acqua Prime -->
-    <picture class="hero-media">
-      <source media="(max-width: 767px)" srcset="assets/img/hero-828.webp" width="828" height="1242">
-      <img src="assets/img/hero-1920.webp" width="1920" height="1280" alt="Piscina azul de água cristalina" fetchpriority="high" decoding="async">
-    </picture>
-
-    <div class="hero-copy">
-      <h1 class="hero-title" id="hero-titulo" aria-label="Sua piscina dos sonhos">
-        <span class="line"><span class="line-in">Sua piscina</span></span>
-        <span class="line line-water">
-          <span class="line-in">
-            <span class="dry">dos sonhos</span>
-            <span class="wet" aria-hidden="true">dos sonhos</span>
-          </span>
-        </span>
-      </h1>
-      <p class="hero-sub">Venda de piscinas, instalação, produtos e pós-venda em Ponta Porã.</p>
-      <div class="hero-actions">
-        <a class="btn btn-accent" href="https://wa.me/5567991661449?text=Ol%C3%A1%2C%20Acqua%20Prime!%20Vim%20pelo%20site%20e%20gostaria%20de%20um%20or%C3%A7amento." target="_blank" rel="noopener">
-          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-wa"/></svg>
-          Pedir orçamento no WhatsApp
-        </a>
-        <a class="hero-rating" href="#avaliacoes">
-          <svg class="stars" viewBox="0 0 100 20" aria-hidden="true"><use href="#i-stars"/></svg>
-          <span>5,0 no Google, 50 avaliações</span>
-        </a>
-      </div>
-    </div>
-  </section>
-
   <main id="conteudo">
-
-    <!-- ===================================================== 2. SERVIÇOS -->
-    <section class="chapter ch-paper services" id="servicos" aria-labelledby="servicos-titulo">
-      <div class="wrap">
-        <div class="services-intro" data-reveal>
-          <h2 id="servicos-titulo" class="h-section">Piscinas em Ponta Porã</h2>
-          <p class="lead">Da escolha da piscina ao cuidado depois da compra, tudo num lugar só, no Centro da cidade.</p>
+    <!-- ===================================================== 1. INÍCIO -->
+    <section class="inicio" id="inicio" aria-labelledby="inicio-t">
+      <div class="bolhas" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="inicio-in">
+        <div class="inicio-texto">
+          <p class="status" data-open-status hidden><span class="status-dot"></span><span data-open-text></span></p>
+          <h1 id="inicio-t">Sua piscina dos sonhos</h1>
+          <p class="inicio-sub">Venda de piscinas, instalação, produtos e pós-venda em Ponta Porã.</p>
+          <div class="inicio-acoes" data-contato>
+            <a class="pill pill-azul pill-grande" href="https://wa.me/5567991661449?text=Ol%C3%A1%2C%20Acqua%20Prime!%20Vim%20pelo%20site%20e%20gostaria%20de%20um%20or%C3%A7amento." target="_blank" rel="noopener">
+              <span class="pill-chip" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#i-wa"/></svg></span>
+              Pedir orçamento no WhatsApp
+            </a>
+            <a class="link-seta" href="#servicos">Ver o que a gente faz</a>
+          </div>
         </div>
 
-        <ul class="service-list">
-          <li class="service" data-reveal>
-            <h3>Venda de piscinas</h3>
-            <div class="service-body">
-              <p>Escolha o modelo certo para o seu espaço e o seu orçamento.</p>
-              <a class="text-link" href="#orcamento" data-service="Comprar uma piscina">Orçar piscina</a>
-            </div>
-            <!-- TROCAR FOTO: piscina vendida pela Acqua Prime -->
-            <div class="service-media"><img src="assets/img/venda.webp" srcset="assets/img/venda-640.webp 640w, assets/img/venda.webp 1100w" sizes="(min-width: 1100px) 25vw, (min-width: 640px) 50vw, 104px" width="1100" height="800" loading="lazy" decoding="async" alt="Piscina com borda infinita e deque de madeira"></div>
-          </li>
-          <li class="service" data-reveal>
-            <h3>Instalação</h3>
-            <div class="service-body">
-              <p>Acompanhamos a obra até a piscina estar cheia e pronta para o primeiro mergulho.</p>
-              <a class="text-link" href="#orcamento" data-service="Instalação">Orçar instalação</a>
-            </div>
-            <!-- TROCAR FOTO: instalação feita pela Acqua Prime -->
-            <div class="service-media"><img src="assets/img/instalacao.webp" srcset="assets/img/instalacao-640.webp 640w, assets/img/instalacao.webp 1100w" sizes="(min-width: 1100px) 25vw, (min-width: 640px) 50vw, 104px" width="1100" height="800" loading="lazy" decoding="async" alt="Piscina num jardim com plantas tropicais"></div>
-          </li>
-          <li class="service" data-reveal>
-            <h3>Produtos e acessórios</h3>
-            <div class="service-body">
-              <p>Tratamento da água, limpeza e acessórios para manter a piscina sempre cristalina.</p>
-              <a class="text-link" href="#orcamento" data-service="Produtos e acessórios">Orçar produtos</a>
-            </div>
-            <!-- TROCAR FOTO: produtos da loja -->
-            <div class="service-media"><img src="assets/img/produtos.webp" srcset="assets/img/produtos-640.webp 640w, assets/img/produtos.webp 1100w" sizes="(min-width: 1100px) 25vw, (min-width: 640px) 50vw, 104px" width="1100" height="800" loading="lazy" decoding="async" alt="Escada de inox na borda de uma piscina ao pôr do sol"></div>
-          </li>
-          <li class="service" data-reveal>
-            <h3>Pós-venda</h3>
-            <div class="service-body">
-              <p>Depois da compra, seguimos por perto para tirar dúvidas e ajudar no cuidado com a piscina.</p>
-              <a class="text-link" href="#orcamento" data-service="Pós-venda">Falar sobre pós-venda</a>
-            </div>
-            <!-- TROCAR FOTO: atendimento ou manutenção da Acqua Prime -->
-            <div class="service-media"><img src="assets/img/posvenda.webp" srcset="assets/img/posvenda-640.webp 640w, assets/img/posvenda.webp 1100w" sizes="(min-width: 1100px) 25vw, (min-width: 640px) 50vw, 104px" width="1100" height="800" loading="lazy" decoding="async" alt="Água azul e cristalina vista de dentro da piscina"></div>
-          </li>
-        </ul>
+        <!-- A foto dentro da bolha, igual à bolha do logo.
+             TROCAR FOTO: assets/img/bolha-960.webp e bolha-560.webp (quadradas) pela melhor foto de piscina da Acqua Prime -->
+        <figure class="bolha-foto">
+          <div class="bolha-vidro">
+            <img src="assets/img/bolha-560.webp" srcset="assets/img/bolha-560.webp 560w, assets/img/bolha-960.webp 960w" sizes="(min-width: 900px) 520px, 86vw" width="960" height="960" alt="Piscina azul em frente a uma casa" fetchpriority="high" decoding="async">
+            <span class="reflexo" aria-hidden="true"></span>
+          </div>
+          <a class="selo" href="#avaliacoes" aria-label="Nota 5,0 no Google, 50 avaliações">
+            <strong>5,0</strong>
+            <svg class="estrelas" viewBox="0 0 100 20" aria-hidden="true"><use href="#i-estrelas"/></svg>
+            <span>50 avaliações<br>no Google</span>
+          </a>
+          <span class="gota g1" aria-hidden="true"></span><span class="gota g2" aria-hidden="true"></span><span class="gota g3" aria-hidden="true"></span>
+        </figure>
       </div>
+      <svg class="onda onda-baixo" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true"><path d="M0 40 C 240 80 480 0 720 40 S 1200 80 1440 30 V80 H0 Z"/></svg>
+    </section>
+
+    <!-- ===================================================== 2. SERVIÇOS -->
+    <section class="servicos" id="servicos" aria-labelledby="servicos-t">
+      <div class="cab" data-reveal>
+        <h2 id="servicos-t">Tudo para a sua piscina</h2>
+        <p>Da escolha da piscina ao cuidado depois da compra, num lugar só, no Centro de Ponta Porã.</p>
+      </div>
+      <ul class="cards">
+        <li class="card" data-reveal>
+          <!-- TROCAR FOTO -->
+          <img src="assets/img/venda-640.webp" width="640" height="466" alt="Piscina com borda infinita e deque de madeira" loading="lazy" decoding="async">
+          <h3>Venda de piscinas</h3>
+          <p>Escolha o modelo certo para o seu espaço e o seu orçamento.</p>
+          <a class="link-seta" href="#orcamento" data-servico="Comprar uma piscina">Quero uma piscina</a>
+        </li>
+        <li class="card" data-reveal>
+          <!-- TROCAR FOTO -->
+          <img src="assets/img/instalacao-640.webp" width="640" height="466" alt="Piscina num jardim com plantas tropicais" loading="lazy" decoding="async">
+          <h3>Instalação</h3>
+          <p>Acompanhamos a obra até a piscina estar cheia e pronta para o primeiro mergulho.</p>
+          <a class="link-seta" href="#orcamento" data-servico="Instalação">Orçar instalação</a>
+        </li>
+        <li class="card" data-reveal>
+          <!-- TROCAR FOTO -->
+          <img src="assets/img/produtos-640.webp" width="640" height="466" alt="Escada de inox na borda de uma piscina" loading="lazy" decoding="async">
+          <h3>Produtos e acessórios</h3>
+          <p>Tratamento da água, limpeza e acessórios para manter a piscina cristalina.</p>
+          <a class="link-seta" href="#orcamento" data-servico="Produtos e acessórios">Pedir produtos</a>
+        </li>
+        <li class="card" data-reveal>
+          <!-- TROCAR FOTO -->
+          <img src="assets/img/posvenda-640.webp" width="640" height="466" alt="Água azul e cristalina vista de dentro da piscina" loading="lazy" decoding="async">
+          <h3>Pós-venda</h3>
+          <p>Depois da compra, seguimos por perto para tirar dúvidas e ajudar no cuidado.</p>
+          <a class="link-seta" href="#orcamento" data-servico="Pós-venda">Falar com a loja</a>
+        </li>
+      </ul>
+    </section>
+
+    <!-- ===================================================== FAIXA DO SLOGAN -->
+    <section class="faixa" aria-label="Slogan">
+      <svg class="onda onda-cima" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true"><path d="M0 40 C 240 0 480 80 720 40 S 1200 0 1440 50 V0 H0 Z"/></svg>
+      <div class="bolhas bolhas-faixa" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <p class="faixa-texto" data-reveal>Sua piscina com o nosso melhor!</p>
+      <svg class="onda onda-baixo" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true"><path d="M0 40 C 240 80 480 0 720 40 S 1200 80 1440 30 V80 H0 Z"/></svg>
     </section>
 
     <!-- ===================================================== 3. PISCINAS INSTALADAS
-         TROCAR FOTOS: as 6 fotos abaixo são provisórias (Unsplash). Troque pelas fotos do Instagram @acquaprimepp:
-         salve em assets/img/ (ex.: obra-1.webp com 1100 × 800 e obra-1-640.webp com 640 px) e mude o src/srcset de cada uma. -->
-    <section class="chapter ch-paper gallery" id="obras" aria-labelledby="obras-titulo">
-      <div class="carousel" data-carousel data-carousel-loop data-carousel-auto="7000">
-        <div class="wrap gallery-head" data-reveal>
-          <div>
-            <h2 id="obras-titulo" class="h-section">Piscinas instaladas</h2>
-            <p class="lead">Alguns dos nossos trabalhos. Toque numa foto para ver grande.</p>
-          </div>
-          <div class="carousel-arrows">
-            <button class="arrow" type="button" data-carousel-prev aria-label="Fotos anteriores"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-            <button class="arrow" type="button" data-carousel-next aria-label="Próximas fotos"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-          </div>
+         TROCAR FOTOS: as 6 fotos são provisórias (Unsplash). Troque pelas fotos do Instagram @acquaprimepp
+         (1100 × 800 e uma versão de 640 px com -640 no nome). -->
+    <section class="piscinas" id="piscinas" aria-labelledby="piscinas-t">
+      <div class="cab cab-linha" data-reveal>
+        <div>
+          <h2 id="piscinas-t">Piscinas instaladas</h2>
+          <p>Alguns dos nossos trabalhos. Toque numa foto para ver grande.</p>
         </div>
-        <ul class="gallery-track" data-carousel-track data-reveal>
-          <li class="gallery-item"><figure><img src="assets/img/hero-1920.webp" srcset="assets/img/casa-640.webp 640w, assets/img/hero-1920.webp 1920w" sizes="(min-width: 900px) 580px, 84vw" width="1920" height="1280" loading="lazy" decoding="async" alt="Piscina azul em frente a uma casa moderna"></figure></li>
-          <li class="gallery-item"><figure><img src="assets/img/venda.webp" srcset="assets/img/venda-640.webp 640w, assets/img/venda.webp 1100w" sizes="(min-width: 900px) 580px, 84vw" width="1100" height="800" loading="lazy" decoding="async" alt="Piscina com borda infinita e deque de madeira"></figure></li>
-          <li class="gallery-item"><figure><img src="assets/img/instalacao.webp" srcset="assets/img/instalacao-640.webp 640w, assets/img/instalacao.webp 1100w" sizes="(min-width: 900px) 580px, 84vw" width="1100" height="800" loading="lazy" decoding="async" alt="Piscina num jardim com plantas tropicais"></figure></li>
-          <li class="gallery-item"><figure><img src="assets/img/obra-5.webp" srcset="assets/img/obra-5-640.webp 640w, assets/img/obra-5.webp 1100w" sizes="(min-width: 900px) 580px, 84vw" width="1100" height="800" loading="lazy" decoding="async" alt="Piscina com deque de madeira e espreguiçadeiras"></figure></li>
-          <li class="gallery-item"><figure><img src="assets/img/produtos.webp" srcset="assets/img/produtos-640.webp 640w, assets/img/produtos.webp 1100w" sizes="(min-width: 900px) 580px, 84vw" width="1100" height="800" loading="lazy" decoding="async" alt="Piscina com escada de inox ao pôr do sol"></figure></li>
-          <li class="gallery-item"><figure><img src="assets/img/obra-6.webp" srcset="assets/img/obra-6-640.webp 640w, assets/img/obra-6.webp 1100w" sizes="(min-width: 900px) 580px, 84vw" width="1100" height="800" loading="lazy" decoding="async" alt="Piscina longa entre coqueiros"></figure></li>
-          <li class="gallery-item gallery-more">
-            <a class="gallery-insta" href="https://www.instagram.com/acquaprimepp/" target="_blank" rel="noopener">
-              <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-insta"/></svg>
-              <span>Ver mais piscinas no Instagram</span>
-              <span class="gallery-insta-user">@acquaprimepp</span>
-            </a>
-          </li>
-        </ul>
+        <a class="pill pill-branco" href="https://www.instagram.com/acquaprimepp/" target="_blank" rel="noopener">
+          <span class="pill-chip" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#i-insta"/></svg></span>
+          @acquaprimepp
+        </a>
       </div>
-    </section>
-
-    <!-- ===================================================== 4. MONTE SEU ORÇAMENTO -->
-    <section class="chapter ch-aqua quote" id="orcamento" aria-labelledby="orcamento-titulo">
-      <div class="wrap quote-grid">
-        <div class="quote-intro" data-reveal>
-          <h2 id="orcamento-titulo" class="h-section">Monte seu orçamento</h2>
-          <p class="lead">Marque as opções e a mensagem chega pronta no WhatsApp da loja. Você revisa antes de mandar.</p>
-        </div>
-
-        <form class="quote-form" data-quote action="https://wa.me/5567991661449" method="get" target="_blank" data-reveal>
-          <div class="q-group" role="radiogroup" aria-labelledby="q-servico">
-            <p class="q-label" id="q-servico">O que você procura?</p>
-            <div class="chips chips-service">
-              <label class="chip"><input type="radio" name="servico" value="Comprar uma piscina"><span>Comprar uma piscina</span></label>
-              <label class="chip"><input type="radio" name="servico" value="Instalação"><span>Instalação</span></label>
-              <label class="chip"><input type="radio" name="servico" value="Produtos e acessórios"><span>Produtos e acessórios</span></label>
-              <label class="chip"><input type="radio" name="servico" value="Pós-venda"><span>Pós-venda</span></label>
-              <label class="chip"><input type="radio" name="servico" value="Ainda não sei"><span>Ainda não sei</span></label>
-            </div>
-          </div>
-
-          <div class="q-group" role="radiogroup" aria-labelledby="q-tamanho">
-            <p class="q-label" id="q-tamanho">Tamanho aproximado da piscina</p>
-            <div class="chips chips-size">
-              <label class="chip"><input type="radio" name="tamanho" value="Pequena"><span>Pequena</span></label>
-              <label class="chip"><input type="radio" name="tamanho" value="Média"><span>Média</span></label>
-              <label class="chip"><input type="radio" name="tamanho" value="Grande"><span>Grande</span></label>
-              <label class="chip"><input type="radio" name="tamanho" value="Não sei o tamanho"><span>Não sei</span></label>
-            </div>
-            <div class="dims" role="group" aria-labelledby="dims-label">
-              <p class="field-label" id="dims-label">Medidas, se souber (em metros)</p>
-              <div class="dims-row">
-                <label class="field"><span class="dim-name">Comprimento</span><input type="text" name="comp" inputmode="decimal" autocomplete="off" placeholder="6"></label>
-                <span class="dims-x" aria-hidden="true">×</span>
-                <label class="field"><span class="dim-name">Largura</span><input type="text" name="larg" inputmode="decimal" autocomplete="off" placeholder="3"></label>
-                <span class="dims-x" aria-hidden="true">×</span>
-                <label class="field"><span class="dim-name">Profundidade</span><input type="text" name="prof" inputmode="decimal" autocomplete="off" placeholder="1,4"></label>
-              </div>
-              <p class="dims-volume" data-volume aria-live="polite" hidden></p>
-            </div>
-          </div>
-
-          <div class="q-group q-fields" role="group" aria-labelledby="q-dados">
-            <p class="q-label" id="q-dados">Seus dados <small>(opcional)</small></p>
-            <label class="field">
-              <span class="field-label">Nome</span>
-              <input type="text" name="nome" autocomplete="name" placeholder="Seu nome">
-            </label>
-            <label class="field">
-              <span class="field-label">Bairro e cidade</span>
-              <input type="text" name="local" autocomplete="address-level2" placeholder="ex.: Centro">
-            </label>
-          </div>
-
-          <div class="q-group">
-            <label class="field">
-              <span class="q-label">Quer contar mais alguma coisa? <small>(opcional)</small></span>
-              <textarea name="obs" rows="2" maxlength="400" placeholder="ex.: quero trocar a bomba, preciso de produto para água verde…"></textarea>
-            </label>
-          </div>
-
-          <!-- Sem JavaScript, o formulário envia este texto padrão -->
-          <input type="hidden" name="text" value="Olá, Acqua Prime! Vim pelo site e gostaria de um orçamento." data-fallback-text>
-        </form>
-
-        <aside class="quote-preview" aria-labelledby="preview-titulo" data-reveal>
-          <p id="preview-titulo" class="q-label">Sua mensagem</p>
-          <div class="bubble">
-            <p class="bubble-text" data-preview aria-live="polite">Olá, Acqua Prime! Vim pelo site e gostaria de um orçamento.</p>
-          </div>
-          <a class="btn btn-accent btn-block" href="https://wa.me/5567991661449" target="_blank" rel="noopener" data-send>
-            <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-wa"/></svg>
-            Enviar pelo WhatsApp
+      <ul class="grade" data-reveal>
+        <li class="g-grande"><img src="assets/img/casa.webp" srcset="assets/img/casa-640.webp 640w, assets/img/casa.webp 1100w" sizes="(min-width: 900px) 50vw, 100vw" width="1100" height="800" loading="lazy" decoding="async" alt="Piscina azul em frente a uma casa moderna"></li>
+        <li><img src="assets/img/venda-640.webp" srcset="assets/img/venda-640.webp 640w, assets/img/venda.webp 1100w" sizes="(min-width: 900px) 25vw, 50vw" width="640" height="466" loading="lazy" decoding="async" alt="Piscina com borda infinita"></li>
+        <li><img src="assets/img/instalacao-640.webp" srcset="assets/img/instalacao-640.webp 640w, assets/img/instalacao.webp 1100w" sizes="(min-width: 900px) 25vw, 50vw" width="640" height="466" loading="lazy" decoding="async" alt="Piscina num jardim tropical"></li>
+        <li><img src="assets/img/obra-5-640.webp" srcset="assets/img/obra-5-640.webp 640w, assets/img/obra-5.webp 1100w" sizes="(min-width: 900px) 25vw, 50vw" width="640" height="466" loading="lazy" decoding="async" alt="Piscina com deque de madeira"></li>
+        <li><img src="assets/img/produtos-640.webp" srcset="assets/img/produtos-640.webp 640w, assets/img/produtos.webp 1100w" sizes="(min-width: 900px) 25vw, 50vw" width="640" height="466" loading="lazy" decoding="async" alt="Piscina com escada de inox"></li>
+        <li class="g-larga"><img src="assets/img/obra-6.webp" srcset="assets/img/obra-6-640.webp 640w, assets/img/obra-6.webp 1100w" sizes="(min-width: 900px) 50vw, 100vw" width="1100" height="800" loading="lazy" decoding="async" alt="Piscina longa entre coqueiros"></li>
+        <li class="g-larga g-insta">
+          <a href="https://www.instagram.com/acquaprimepp/" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-insta"/></svg>
+            <span>Veja mais piscinas no Instagram</span>
+            <small>@acquaprimepp</small>
           </a>
-          <p class="preview-note">Abre o WhatsApp com a mensagem pronta para o número (67) 99166-1449.</p>
-        </aside>
-      </div>
-    </section>
-
-    <!-- ===================================================== 5. NOTA DO GOOGLE -->
-    <section class="chapter ch-paper rating" id="avaliacoes" aria-labelledby="nota-titulo">
-      <div class="wrap">
-        <div class="rating-head" data-reveal>
-          <div class="rating-score" aria-hidden="true">
-            <p class="score">5,0</p>
-            <svg class="stars stars-lg" viewBox="0 0 100 20"><use href="#i-stars"/></svg>
-          </div>
-          <div class="rating-copy">
-            <h2 id="nota-titulo" class="h-section">Avaliações no Google</h2>
-            <p class="lead">São 50 avaliações no Google, com nota 5,0. Os clientes elogiam o atendimento, a qualidade dos produtos, o pós-venda e o melhor preço da cidade.</p>
-            <div class="rating-actions">
-              <a class="btn btn-accent" href="https://www.google.com/maps/search/?api=1&amp;query=Acqua%20Prime%20Piscinas%20Ponta%20Por%C3%A3" target="_blank" rel="noopener">Ler as avaliações no Google</a>
-              <p class="rating-insta">No Instagram: <a class="text-link" href="https://www.instagram.com/acquaprimepp/" target="_blank" rel="noopener">@acquaprimepp</a></p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Só os pontos que os clientes elogiam. Para usar trechos reais, copie frases das avaliações do Google. -->
-      <ul class="praise" aria-label="O que os clientes elogiam">
-        <li class="praise-card" data-reveal>
-          <span class="praise-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20v-1.5A4.5 4.5 0 0 1 8.5 14h7a4.5 4.5 0 0 1 4.5 4.5V20M12 11a3.6 3.6 0 1 0 0-7.2A3.6 3.6 0 0 0 12 11z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
-          <div>
-            <p class="praise-title">Atendimento e pós‑venda</p>
-            <p class="praise-text">Os clientes elogiam o cuidado antes e depois da compra.</p>
-          </div>
-        </li>
-        <li class="praise-card" data-reveal>
-          <span class="praise-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l2.5 5.2 5.7.8-4.1 4 1 5.6L12 16l-5.1 2.6 1-5.6-4.1-4 5.7-.8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></span>
-          <div>
-            <p class="praise-title">Qualidade dos produtos</p>
-            <p class="praise-text">Produtos aprovados por quem já comprou e usa na própria piscina.</p>
-          </div>
-        </li>
-        <li class="praise-card" data-reveal>
-          <span class="praise-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 12.5V4.8A1.8 1.8 0 0 1 4.8 3h7.7l8.5 8.5-9.5 9.5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="8" cy="8" r="1.8" fill="currentColor"/></svg></span>
-          <div>
-            <p class="praise-title">Melhor preço da cidade</p>
-            <p class="praise-text">É assim que os próprios clientes descrevem a Acqua Prime.</p>
-          </div>
         </li>
       </ul>
     </section>
 
+    <!-- ===================================================== 4. ORÇAMENTO EM CONVERSA -->
+    <section class="orcamento" id="orcamento" aria-labelledby="orcamento-t">
+      <div class="bolhas" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="orc-in">
+        <div class="cab" data-reveal>
+          <h2 id="orcamento-t">Monte seu orçamento</h2>
+          <p>Responda umas perguntas rápidas. A mensagem chega pronta no WhatsApp da loja e você revisa antes de mandar.</p>
+        </div>
+
+        <div class="chat" data-reveal>
+          <div class="chat-topo">
+            <span class="chat-avatar"><img src="assets/img/apple-touch-icon.png" width="180" height="180" alt=""></span>
+            <span><strong>Acqua Prime</strong><small>(67) 99166-1449</small></span>
+          </div>
+          <div class="chat-log" data-chat-log aria-live="polite">
+            <noscript>
+              <p class="msg msg-loja">Oi! Chame a gente no WhatsApp para pedir seu orçamento.</p>
+            </noscript>
+          </div>
+          <div class="chat-resp" data-chat-resp>
+            <noscript><a class="pill pill-verde" href="https://wa.me/5567991661449">Abrir o WhatsApp</a></noscript>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================== 5. AVALIAÇÕES -->
+    <section class="avaliacoes" id="avaliacoes" aria-labelledby="avaliacoes-t">
+      <div class="aval-in">
+        <div class="nota" data-reveal>
+          <div class="nota-bolha">
+            <strong>5,0</strong>
+            <svg class="estrelas" viewBox="0 0 100 20" aria-hidden="true"><use href="#i-estrelas"/></svg>
+          </div>
+          <h2 id="avaliacoes-t">Nota 5,0 no Google</h2>
+          <p>São 50 avaliações. Os clientes elogiam o atendimento, a qualidade dos produtos, o pós-venda e o melhor preço da cidade.</p>
+          <a class="pill pill-azul" href="https://www.google.com/maps/search/?api=1&amp;query=Acqua%20Prime%20Piscinas%20Ponta%20Por%C3%A3" target="_blank" rel="noopener">
+            <span class="pill-chip" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#i-estrela"/></svg></span>
+            Ler as avaliações
+          </a>
+        </div>
+        <!-- Os três pontos que os clientes elogiam (sem nomes nem frases inventadas) -->
+        <ul class="falas" aria-label="O que os clientes elogiam">
+          <li class="fala" data-reveal><strong>Atendimento e pós&#8209;venda</strong><span>Cuidado antes e depois da compra.</span></li>
+          <li class="fala fala-2" data-reveal><strong>Qualidade dos produtos</strong><span>Aprovada por quem já comprou.</span></li>
+          <li class="fala fala-3" data-reveal><strong>Melhor preço da cidade</strong><span>Palavra dos próprios clientes.</span></li>
+        </ul>
+      </div>
+    </section>
+
     <!-- ===================================================== 6. ONDE ESTAMOS -->
-    <section class="chapter place" id="contato" aria-labelledby="contato-titulo">
-      <div class="wrap place-grid">
-        <div class="place-info" data-reveal>
-          <p class="open-status" data-open-status hidden><span class="open-dot"></span><span data-open-text></span></p>
-          <h2 id="contato-titulo" class="h-section">Onde estamos</h2>
-          <p class="lead">No Centro de Ponta Porã. Chame no WhatsApp ou venha conhecer a loja.</p>
-          <div class="place-actions">
-            <a class="btn btn-accent" href="https://wa.me/5567991661449?text=Ol%C3%A1%2C%20Acqua%20Prime!%20Vim%20pelo%20site." target="_blank" rel="noopener">
-              <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-wa"/></svg>
+    <section class="onde" id="onde" aria-labelledby="onde-t">
+      <div class="onde-in">
+        <div class="onde-info" data-reveal>
+          <h2 id="onde-t">Onde estamos</h2>
+          <p class="status status-claro" data-open-status hidden><span class="status-dot"></span><span data-open-text></span></p>
+          <ul class="dados">
+            <li><span class="dado-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#i-pin"/></svg></span><span><small>Endereço</small>Rua Maracaju, 431<br>Centro, Ponta Porã - MS</span></li>
+            <li><span class="dado-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#i-relogio"/></svg></span>
+              <span><small>Horário</small>
+                <span class="horas"><span data-dias="1,2,3,4,5">Seg a sex, 8h às 17h30</span><span data-dias="6">Sábado, 8h às 13h</span><span data-dias="0">Domingo, fechado</span></span>
+              </span>
+            </li>
+            <li><span class="dado-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#i-wa"/></svg></span><span><small>WhatsApp</small><a href="https://wa.me/5567991661449" target="_blank" rel="noopener">(67) 99166-1449</a></span></li>
+          </ul>
+          <div class="onde-acoes" data-contato>
+            <a class="pill pill-verde" href="https://wa.me/5567991661449?text=Ol%C3%A1%2C%20Acqua%20Prime!%20Vim%20pelo%20site." target="_blank" rel="noopener">
+              <span class="pill-chip" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#i-wa"/></svg></span>
               Chamar no WhatsApp
             </a>
-            <a class="btn btn-ghost" href="https://www.google.com/maps/dir/?api=1&amp;destination=Rua%20Maracaju%2C%20431%20-%20Centro%2C%20Ponta%20Por%C3%A3%20-%20MS" target="_blank" rel="noopener">
-              <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-pin"/></svg>
+            <a class="pill pill-branco" href="https://www.google.com/maps/dir/?api=1&amp;destination=Rua%20Maracaju%2C%20431%20-%20Centro%2C%20Ponta%20Por%C3%A3%20-%20MS" target="_blank" rel="noopener">
+              <span class="pill-chip" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#i-pin"/></svg></span>
               Como chegar
             </a>
           </div>
-          <dl class="facts">
-            <div class="fact">
-              <span class="fact-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#i-pin"/></svg></span>
-              <dt>Endereço</dt>
-              <dd>Rua Maracaju, 431<br>Centro, Ponta Porã - MS</dd>
-            </div>
-            <div class="fact">
-              <span class="fact-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 7.5V12l3 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
-              <dt>Horário</dt>
-              <dd>Seg a sex, 8h às 17h30<br>Sábado, 8h às 13h</dd>
-            </div>
-            <div class="fact">
-              <span class="fact-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#i-wa"/></svg></span>
-              <dt>WhatsApp</dt>
-              <dd><a href="https://wa.me/5567991661449" target="_blank" rel="noopener">(67) 99166-1449</a></dd>
-            </div>
-          </dl>
         </div>
-
-        <div class="map" data-reveal>
-          <iframe title="Mapa: Rua Maracaju, 431, Centro, Ponta Porã" src="https://maps.google.com/maps?q=Rua%20Maracaju%2C%20431%2C%20Centro%2C%20Ponta%20Por%C3%A3%20-%20MS&amp;z=16&amp;hl=pt-BR&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+        <div class="mapa" data-reveal>
+          <iframe title="Mapa: Rua Maracaju, 431, Centro, Ponta Porã" src="https://maps.google.com/maps?q=Rua%20Maracaju%2C%20431%2C%20Centro%2C%20Ponta%20Por%C3%A3%20-%20MS&amp;z=16&amp;hl=pt-BR&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
       </div>
     </section>
   </main>
 
   <!-- ===================================================== RODAPÉ -->
-  <footer class="footer" aria-labelledby="rodape-titulo">
-    <div class="wrap">
-      <div class="footer-top">
-        <p class="footer-brand">
-          <img src="assets/img/logo-slogan.webp" width="520" height="350" alt="Acqua Prime: sua piscina com o nosso melhor!" loading="lazy" decoding="async">
-        </p>
-        <a class="to-top" href="#topo">Voltar ao topo</a>
+  <footer class="rodape">
+    <svg class="onda onda-cima" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true"><path d="M0 40 C 240 0 480 80 720 40 S 1200 0 1440 50 V0 H0 Z"/></svg>
+    <div class="rodape-in">
+      <div class="rodape-marca">
+        <img src="assets/img/logo-520.webp" width="520" height="280" alt="Acqua Prime Piscinas" loading="lazy" decoding="async">
+        <p>Sua piscina com o nosso melhor!</p>
       </div>
-
-      <h2 id="rodape-titulo" class="footer-title">Sua piscina com o nosso melhor! Fale com a Acqua Prime:</h2>
-      <div class="footer-phones">
-        <a class="footer-phone" href="https://wa.me/5567991661449" target="_blank" rel="noopener">
-          <span class="fp-number">(67) 99166-1449</span>
-          <span class="fp-label"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-wa"/></svg> Chamar no WhatsApp</span>
-        </a>
+      <div class="rodape-cols">
+        <div><h2>WhatsApp</h2><a href="https://wa.me/5567991661449" target="_blank" rel="noopener">(67) 99166-1449</a></div>
+        <div><h2>Instagram</h2><a href="https://www.instagram.com/acquaprimepp/" target="_blank" rel="noopener">@acquaprimepp</a></div>
+        <div><h2>Endereço</h2><p>Rua Maracaju, 431<br>Centro<br>Ponta Porã - MS</p></div>
+        <div><h2>Horário</h2><p>Seg a sex<br>8h às 17h30<br>Sábado, 8h às 13h</p></div>
       </div>
-
-      <div class="footer-meta">
-        <a class="insta" href="https://www.instagram.com/acquaprimepp/" target="_blank" rel="noopener">
-          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-insta"/></svg>
-          @acquaprimepp
-        </a>
-        <p class="footer-address">Rua Maracaju, 431 - Centro, Ponta Porã - MS</p>
+      <div class="rodape-fim">
+        <p>© 2026 Acqua Prime Piscinas</p>
+        <a href="#inicio">Voltar ao topo</a>
       </div>
-      <!-- As fotos provisórias são do Unsplash (lista no README). -->
+      <!-- Fotos provisórias do Unsplash (lista no README). -->
     </div>
   </footer>
 
-  <!-- ===================================================== WHATSAPP FIXO -->
-  <a class="wa-float" href="https://wa.me/5567991661449?text=Ol%C3%A1%2C%20Acqua%20Prime!%20Vim%20pelo%20site%20e%20gostaria%20de%20um%20or%C3%A7amento." target="_blank" rel="noopener" aria-label="Conversar com a Acqua Prime no WhatsApp">
+  <!-- WhatsApp flutuante -->
+  <a class="wa" href="https://wa.me/5567991661449?text=Ol%C3%A1%2C%20Acqua%20Prime!%20Vim%20pelo%20site%20e%20gostaria%20de%20um%20or%C3%A7amento." target="_blank" rel="noopener" aria-label="Conversar com a Acqua Prime no WhatsApp">
     <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-wa"/></svg>
   </a>
 
   <!-- Foto ampliada -->
-  <dialog class="lightbox" data-lightbox aria-label="Foto ampliada">
-    <div class="lb-stage" data-lb-stage>
-      <img data-lb-img alt="">
-    </div>
-    <div class="lb-bar">
-      <p class="lb-caption" data-lb-caption></p>
-      <button class="lb-btn" type="button" data-lb-zoom aria-pressed="false">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16.5 16.5L21 21M8 11h6M11 8v6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" data-lb-plus/></svg>
-        <span data-lb-zoom-label>Dar zoom</span>
-      </button>
-      <button class="lb-btn lb-close" type="button" data-lb-close aria-label="Fechar foto">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
-      </button>
-    </div>
+  <dialog class="caixa-foto" data-lightbox aria-label="Foto ampliada">
+    <img data-lb-img alt="">
+    <button class="caixa-fechar" type="button" data-lb-close aria-label="Fechar foto"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></button>
   </dialog>
 
   <!-- Ícones -->
-  <svg class="defs" width="0" height="0" aria-hidden="true" focusable="false">
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
     <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></symbol>
-    <symbol id="i-star" viewBox="0 0 20 20"><path fill="currentColor" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" d="M10 1.8l2.4 5.1 5.6.6-4.2 3.8 1.2 5.5L10 14l-5 2.8 1.2-5.5L2 7.5l5.6-.6z"/></symbol>
-    <symbol id="i-stars" viewBox="0 0 100 20"><use href="#i-star" x="0" width="20" height="20"/><use href="#i-star" x="20" width="20" height="20"/><use href="#i-star" x="40" width="20" height="20"/><use href="#i-star" x="60" width="20" height="20"/><use href="#i-star" x="80" width="20" height="20"/></symbol>
-    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="12" cy="9.5" r="2.6" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
-    <symbol id="i-insta" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.4" cy="6.6" r="1.3" fill="currentColor"/></symbol>
+    <symbol id="i-estrela" viewBox="0 0 20 20"><path fill="currentColor" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" d="M10 1.8l2.4 5.1 5.6.6-4.2 3.8 1.2 5.5L10 14l-5 2.8 1.2-5.5L2 7.5l5.6-.6z"/></symbol>
+    <symbol id="i-estrelas" viewBox="0 0 100 20"><use href="#i-estrela" x="0" width="20" height="20"/><use href="#i-estrela" x="20" width="20" height="20"/><use href="#i-estrela" x="40" width="20" height="20"/><use href="#i-estrela" x="60" width="20" height="20"/><use href="#i-estrela" x="80" width="20" height="20"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><circle cx="12" cy="9.5" r="2.6" fill="none" stroke="currentColor" stroke-width="2.2"/></symbol>
+    <symbol id="i-relogio" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M12 7.5V12l3 2" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></symbol>
+    <symbol id="i-insta" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2.2"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="2.2"/><circle cx="17.4" cy="6.6" r="1.3" fill="currentColor"/></symbol>
   </svg>
 
-  <script src="assets/js/main.js?v=1" defer></script>
+  <script src="assets/js/main.js?v=3" defer></script>
 </body>
 </html>
