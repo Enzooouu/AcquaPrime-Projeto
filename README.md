@@ -16,11 +16,12 @@ assets/css/style.css  visual (cores e tamanhos no topo, em :root)
 assets/js/main.js     interações (orçamento, fileira de fotos, aberto agora, menu, fotos ampliáveis)
 assets/img/           fotos (todas provisórias) e favicon
 assets/fonts/         Hanken Grotesk (licença OFL), hospedada no próprio site
+logo/                 logo da Acqua Prime com fundo transparente (PNG, com e sem o slogan)
 ```
 
 ## Seções
 
-- **Tela de abertura:** a piscina enche de água, o nome aparece e a tela sobe. Só na primeira visita da sessão, dura de 1,3 a 1,6 s e some ao tocar. Quem ativou "reduzir movimento" não vê.
+- **Tela de abertura:** o logo entra como uma bolha, o slogan "Sua piscina com o nosso melhor!" aparece e a tela sobe. Só na primeira visita da sessão, dura de 1,3 a 1,6 s e some ao tocar. Quem ativou "reduzir movimento" não vê.
 - **Cabeçalho fixo:** transparente sobre a foto do topo, branco quando a pessoa rola. No celular, os links ficam num menu.
 1. **Topo:** foto em tela cheia, "Sua piscina dos sonhos" com a parte de baixo das letras ondulando como debaixo d'água, o botão "Pedir orçamento no WhatsApp" e a nota 5,0 com 50 avaliações.
 2. **Serviços:** venda de piscinas, instalação, produtos e acessórios, pós-venda. Cada link "Orçar…" já marca a opção no orçamento.
@@ -42,7 +43,6 @@ Procure por `TROCAR` no `index.html`.
 | Fotos dos serviços | `venda`, `instalacao`, `produtos`, `posvenda` (`.webp` e `-640.webp`) | 1100 × 800 e 640 px |
 | Piscinas instaladas | seção `obras` no `index.html` | 6 fotos provisórias. Troque pelas fotos do Instagram @acquaprimepp, sempre com uma versão de 640 px |
 | Imagem de compartilhamento | `assets/img/og.jpg` | 1200 × 630 |
-| Logo | cabeçalho e rodapé (`.logo-mark` e `.logo-text`) | Hoje é um logo provisório em código (uma piscina vista de cima). Se a loja tiver logo, troque por ele |
 | Elogios | seção `avaliacoes` | Se quiser, troque por trechos curtos copiados das avaliações reais do Google |
 
 Ao trocar uma foto, salve em `.webp` com qualidade de 60 a 75 para o site continuar leve.
@@ -70,4 +70,8 @@ As frases curtas dos serviços (por exemplo, "acompanhamos a obra até a piscina
 ## Cantos
 
 Nenhum canto vivo, e os cantos aninhados são concêntricos: raio externo = raio interno + espaço
-(ex.: blocos de 30px = cartões de 22px + 8px de espaço; logo de 9px = água de 5px + borda de 4px).
+(ex.: blocos de 30px = cartões de 22px + 8px de espaço).
+
+## Cores
+
+Tiradas do logo: azul-marinho do slogan (#072a5e), azul forte das letras (#0a63d1, cor dos botões), azul-claro da bolha (#19b8f5) e branco.
