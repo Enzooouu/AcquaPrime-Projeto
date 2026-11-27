@@ -117,7 +117,7 @@
   if (caixa && typeof caixa.showModal === 'function') {
     const img = $('[data-lb-img]', caixa);
     let origem = null;
-    $$('.grade img').forEach(f => {
+    $$('.grade img, .prod img').forEach(f => {
       f.tabIndex = 0; f.setAttribute('role', 'button');
       f.setAttribute('aria-label', `Ampliar foto: ${f.alt}`);
       const abre = () => { origem = f; img.src = f.currentSrc || f.src; img.alt = f.alt; caixa.showModal(); };

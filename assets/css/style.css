@@ -601,3 +601,16 @@ p { text-wrap: pretty; }
   .chat-lado .msg-previa { max-width: 100%; }
 }
 @media (min-width: 1000px) { .pedido > .duplo { grid-column: 2; } .orc-in .cab { padding: 0; } }
+
+/* ---------- Loja ---------- */
+.loja { padding-top: var(--gap-secao); }
+.prods { max-width: var(--max); margin: 32px auto 0; padding: 0 var(--m); display: grid; gap: 12px; grid-template-columns: 1fr 1fr; }
+/* cartão 32 = arte 22 + 10 */
+.prod { display: flex; flex-direction: column; gap: 10px; padding: var(--pad-card) var(--pad-card) 16px; border-radius: var(--r-card); background: var(--ceu); transition: transform .35s var(--mola); }
+.prod:hover { transform: translateY(-6px); }
+.prod img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: top; border-radius: var(--r-foto); cursor: zoom-in; }
+.prod > div { padding: 0 6px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
+.prod h3 { font-size: 1.1875rem; color: var(--marinho); }
+.prod p { font-size: var(--t-small); line-height: 1.45; color: var(--tinta-2); flex: 1; }
+.prod .link-seta { font-size: .9375rem; }
+@media (min-width: 900px) { .prods { grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 44px; } .prod h3 { font-size: var(--t-h3); } .prod p { font-size: 1rem; } }
