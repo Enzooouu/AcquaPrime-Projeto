@@ -49,7 +49,8 @@
     const v = (k) => (f.get(k) || '').toString().trim();
     const l = ['Olá, Acqua Prime! Vim pelo site e gostaria de um orçamento.'];
     const d = [];
-    if (v('servico')) d.push(`*Procuro:* ${v('servico')}`);
+    const servicos = f.getAll('servico');
+    if (servicos.length) d.push(`*Procuro:* ${servicos.length > 1 ? servicos.slice(0, -1).join(', ') + ' e ' + servicos[servicos.length - 1] : servicos[0]}`);
     if (v('m2nao')) d.push('*Tamanho:* ainda não sei');
     else if (v('m2')) d.push(`*Tamanho:* ${v('m2').replace(/\s*m²?\s*$/i, '')} m²`);
     if (v('ladrilho')) d.push(`*Ladrilho:* ${v('ladrilho')}`);
@@ -87,7 +88,7 @@
   // atalhos dos cartões de serviço: já marcam a opção
   $$('[data-servico]').forEach(a => a.addEventListener('click', () => {
     const i = pedido && $$('input[name=servico]', pedido).find(x => x.value === a.dataset.servico);
-    if (i) { i.checked = true; atualizaPedido(); }
+    if (i && !i.checked) { i.checked = true; atualizaPedido(); }
   }));
 
   /* ---------- WhatsApp flutuante: some quando outro botão de contato está na tela ---------- */

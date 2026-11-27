@@ -659,3 +659,5 @@ p { text-wrap: pretty; }
 .fala-2 span, .fala-3 span { color: var(--tinta-2); }
 .rola-item .av-nome { font-family: var(--f-texto); font-size: 1.0625rem; font-weight: 800; }
 .rola-item .av-meta { font-family: var(--f-texto); font-size: .875rem; font-weight: 400; color: var(--tinta-2); }
+.chip span small { font-weight: 600; font-size: .8125rem; opacity: .8; margin-left: 4px; }
+.legenda-obs { font-family: var(--f-texto); font-weight: 600; font-size: .8125rem; color: var(--tinta-2); }

@@ -180,17 +180,17 @@
         <li class="prod" data-reveal>
           <img src="assets/img/loja-aquecedor.webp" width="720" height="704" alt="Bomba de calor Terma Platinum Nautilus: silenciosa, full inverter, ciclo reverso" loading="lazy" decoding="async">
           <div><h3>Aquecedores</h3><p>Bombas de calor Terma Platinum (Nautilus) e trocadores Sibrape, full inverter e silenciosos.</p>
-          <a class="link-seta" href="#orcamento" data-servico="Aquecedor">Orçar aquecedor</a></div>
+          <a class="link-seta" href="#orcamento" data-servico="Produtos e acessórios">Orçar aquecedor</a></div>
         </li>
         <li class="prod" data-reveal>
           <img src="assets/img/loja-cloro.webp" width="720" height="880" alt="Gerador de cloro Easyclor Nautilus" loading="lazy" decoding="async">
           <div><h3>Geradores de cloro</h3><p>Easyclor (Nautilus) e Sibrape: transformam o sal em cloro e deixam a água cristalina.</p>
-          <a class="link-seta" href="#orcamento" data-servico="Gerador de cloro">Orçar gerador</a></div>
+          <a class="link-seta" href="#orcamento" data-servico="Produtos e acessórios">Orçar gerador</a></div>
         </li>
         <li class="prod" data-reveal>
           <img src="assets/img/loja-quimicos.webp" width="720" height="900" alt="Produtos químicos para piscina Hidroazul, Suall, Montreal e outros" loading="lazy" decoding="async">
           <div><h3>Produtos químicos</h3><p>Cloro, algicida, clarificante e tudo para o tratamento da água. Atacado e varejo.</p>
-          <a class="link-seta" href="#orcamento" data-servico="Produtos químicos">Pedir produtos</a></div>
+          <a class="link-seta" href="#orcamento" data-servico="Produtos e acessórios">Pedir produtos</a></div>
         </li>
         <li class="prod" data-reveal>
           <img src="assets/img/loja-acessorios.webp" width="720" height="900" alt="Acessórios de manutenção: peneira, escova, aspirador e mangueira" loading="lazy" decoding="async">
@@ -283,16 +283,13 @@
 
             <form class="pedido" data-pedido action="https://wa.me/5567991661449" method="get" target="_blank">
               <fieldset class="campo-grupo">
-                <legend>O que você procura?</legend>
+                <legend>O que você procura? <small class="legenda-obs">(pode marcar mais de um)</small></legend>
                 <div class="chips">
-                  <label class="chip"><input type="radio" name="servico" value="Comprar uma piscina"><span>Comprar uma piscina</span></label>
-                  <label class="chip"><input type="radio" name="servico" value="Instalação"><span>Instalação</span></label>
-                  <label class="chip"><input type="radio" name="servico" value="Produtos e acessórios"><span>Produtos e acessórios</span></label>
-                  <label class="chip"><input type="radio" name="servico" value="Pós-venda"><span>Pós-venda</span></label>
-                  <label class="chip"><input type="radio" name="servico" value="Aquecedor"><span>Aquecedor</span></label>
-                  <label class="chip"><input type="radio" name="servico" value="Gerador de cloro"><span>Gerador de cloro</span></label>
-                  <label class="chip"><input type="radio" name="servico" value="Produtos químicos"><span>Produtos químicos</span></label>
-                  <label class="chip"><input type="radio" name="servico" value="Ainda não sei"><span>Ainda não sei</span></label>
+                  <label class="chip"><input type="checkbox" name="servico" value="Comprar uma piscina"><span>Comprar uma piscina</span></label>
+                  <label class="chip"><input type="checkbox" name="servico" value="Instalação"><span>Instalação</span></label>
+                  <label class="chip"><input type="checkbox" name="servico" value="Produtos e acessórios"><span>Produtos e acessórios <small>(aquecedor, produto químico etc.)</small></span></label>
+                  <label class="chip"><input type="checkbox" name="servico" value="Pós-venda"><span>Pós-venda</span></label>
+                  <label class="chip"><input type="checkbox" name="servico" value="Ainda não sei"><span>Ainda não sei</span></label>
                 </div>
               </fieldset>
 
