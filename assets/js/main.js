@@ -127,7 +127,7 @@
     await lojaFala('Pronto! Sua mensagem ficou assim:');
     fala('', 'loja msg-final', esc(txt).replace(/\*(.+?)\*/g, '<b>$1</b>'));
     const a = document.createElement('a');
-    a.className = 'pill pill-verde';
+    a.className = 'pill pill-azul';
     a.href = `${WA}?text=${encodeURIComponent(txt)}`;
     a.target = '_blank'; a.rel = 'noopener';
     a.setAttribute('data-contato', '');

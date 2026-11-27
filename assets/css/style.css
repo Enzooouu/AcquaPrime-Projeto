@@ -19,8 +19,6 @@
   --marinho: #0b2a63;      /* o slogan: textos e fundo escuro */
   --tinta: #0b2a63;
   --tinta-2: #3f5578;
-  --verde: #1ebe5a;        /* WhatsApp */
-  --verde-hover: #17a54d;
   --sol: #ffc531;
 
   --f-titulo: "Fredoka", "Trebuchet MS", system-ui, sans-serif;
@@ -83,9 +81,6 @@ p { text-wrap: pretty; }
 .pill-azul { background: var(--azul); color: #fff; }
 .pill-azul .pill-chip { background: #fff; color: var(--azul); }
 .pill-azul:hover { background: var(--azul-hover); }
-.pill-verde { background: var(--verde); color: #fff; }
-.pill-verde .pill-chip { background: #fff; color: var(--verde); }
-.pill-verde:hover { background: var(--verde-hover); }
 .pill-branco { background: #fff; color: var(--marinho); }
 .pill-branco .pill-chip { background: var(--ceu); color: var(--azul); }
 .pill-branco:hover { background: var(--ceu-2); }
@@ -411,14 +406,14 @@ p { text-wrap: pretty; }
 .wa {
   position: fixed; z-index: 40; right: calc(16px + env(safe-area-inset-right)); bottom: calc(16px + env(safe-area-inset-bottom));
   width: 62px; height: 62px; border-radius: 50%; display: grid; place-items: center;
-  background: var(--verde); color: #fff;
+  background: var(--azul); color: #fff;
   outline: 4px solid #fff;
   box-shadow: 0 10px 26px rgba(11, 42, 99, .28); /* botão que flutua de verdade */
   transition: transform .3s var(--mola), opacity .3s ease;
 }
-.wa::before { content: ""; position: absolute; inset: 0; border-radius: 50%; background: var(--verde); z-index: -1; animation: onda-wa 2.6s ease-out infinite; }
+.wa::before { content: ""; position: absolute; inset: 0; border-radius: 50%; background: var(--azul-claro); z-index: -1; animation: onda-wa 2.6s ease-out infinite; }
 .wa svg { width: 32px; height: 32px; }
-.wa:hover { transform: scale(1.08) rotate(-6deg); }
+.wa:hover { transform: scale(1.08) rotate(-6deg); background: var(--azul-hover); }
 .wa:active { transform: scale(.94); }
 .js .wa.is-hidden { opacity: 0; transform: scale(.5); pointer-events: none; }
 @keyframes onda-wa { 0% { transform: scale(1); opacity: .5; } 80%, 100% { transform: scale(1.7); opacity: 0; } }
