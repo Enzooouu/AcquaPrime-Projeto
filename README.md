@@ -70,3 +70,15 @@ Nenhum canto vivo, e os cantos aninhados são concêntricos: raio externo = raio
 ## Cores
 
 Tiradas do logo: azul-marinho do slogan (#072a5e), azul forte das letras (#0a63d1, cor dos botões), azul-claro da bolha (#19b8f5) e branco.
+
+## SEO local e GEO
+
+- Título e descrição com serviço + cidade; um único H1 ("Sua piscina dos sonhos — Piscinas em Ponta Porã - MS").
+- Dados estruturados no `<head>`: `HomeAndConstructionBusiness`/`Store` (endereço, telefone, horário, área atendida, nota 5,0 com 50 avaliações, Instagram, Maps), `WebSite` e `FAQPage`.
+- Open Graph e Twitter Card (prévia bonita no WhatsApp), URL canônica, `sitemap.xml`, `robots.txt` e `llms.txt` (resumo da empresa para IAs).
+- Seção **Perguntas frequentes**: o mesmo texto está no bloco `FAQPage` do `<head>`. Mudou um, mude o outro.
+- Endereço e telefone escritos igual em todo o site: **Rua Maracaju, 431 - Centro, Ponta Porã - MS** e **(67) 99166-1449**.
+
+**Ao publicar:** troque `https://SEUDOMINIO.com.br` pelo endereço real em `index.html`, `sitemap.xml`, `robots.txt` e `llms.txt`. Depois cadastre o site no Google Search Console, envie o `sitemap.xml` e coloque o endereço do site no perfil do Google Meu Negócio e no Instagram.
+
+**Confirmar com o dono:** a resposta sobre prazo ("depende do tipo de piscina e da obra") e o @ do Instagram (`acquaprimepp` ou `acqua_prime`).

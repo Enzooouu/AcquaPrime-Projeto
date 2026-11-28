@@ -39,6 +39,9 @@
     document.addEventListener('click', (e) => { if (!topo.contains(e.target)) setMenu(false); });
   }
 
+  // O resto não é urgente: roda quando o navegador estiver livre (não atrasa a primeira tela)
+  const depois = (fn) => ('requestIdleCallback' in window ? requestIdleCallback(fn, { timeout: 1500 }) : setTimeout(fn, 200));
+  depois(() => {
   /* ---------- Orçamento: tudo numa mensagem só ---------- */
   const pedido = $('[data-pedido]');
   const previa = $('[data-previa]');
@@ -159,4 +162,5 @@
     $$('[data-dias]').forEach(el => el.classList.toggle('is-hoje', el.dataset.dias.split(',').map(Number).includes(n)));
   };
   pinta(); setInterval(pinta, 60000);
+  });
 })();
